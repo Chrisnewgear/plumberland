@@ -1,0 +1,107 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid $color-border;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-8;
+  height: 80px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  font-family: $font-heading;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: $color-ink;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: $space-8;
+  margin: 0 auto;
+
+  a {
+    color: $color-body;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  .active {
+    color: $color-secondary;
+  }
+
+  @include respond-below($bp-lg) {
+    gap: $space-6;
+  }
+
+  @include respond-below($bp-md) {
+    display: none;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+}
+
+.callNow {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-weight: 600;
+  color: $color-ink;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+
+  svg { color: $color-secondary; }
+
+  &:hover { color: $color-secondary; }
+
+  @include respond-below($bp-sm) {
+    display: none;
+  }
+}
+
+.cta {
+  border: 0;
+  background: $color-secondary;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: $space-3 $space-6;
+  border-radius: $radius-pill;
+  box-shadow: 0 2px 8px rgba($color-secondary, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $color-secondary-dark;
+    box-shadow: 0 4px 12px rgba($color-secondary-dark, 0.4);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

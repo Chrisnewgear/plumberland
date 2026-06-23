@@ -1,0 +1,102 @@
+.section {
+  background: linear-gradient(180deg, $color-surface-alt 0%, #e9ebef 100%);
+}
+
+.inner {
+  @include container;
+  @include section-pad;
+}
+
+.card {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+  background: #fff;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  padding: $space-16 $space-12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-6;
+
+  @include respond-below($bp-sm) {
+    padding: $space-12 $space-6;
+  }
+}
+
+.topIcon {
+  display: grid;
+  place-items: center;
+  color: $color-secondary;
+}
+
+.card h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.card > p {
+  color: $color-muted;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.call {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-2;
+}
+
+.callIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e0e3f5;
+  color: $color-primary;
+}
+
+.callText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+
+  span { color: $color-muted; font-size: 0.85rem; }
+  strong { color: $color-ink; font-size: 1.35rem; font-family: $font-heading; }
+}
+
+.primary {
+  border: 0;
+  background: $color-secondary;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: $space-4 $space-12;
+  border-radius: $radius-md;
+  box-shadow: 0 6px 18px rgba($color-secondary, 0.35);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $color-secondary-dark;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.note {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: $color-muted;
+  font-size: 0.9rem;
+
+  svg { color: $color-ink; }
+}

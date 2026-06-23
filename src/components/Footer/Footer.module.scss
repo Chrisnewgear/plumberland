@@ -1,0 +1,101 @@
+.footer {
+  background: $color-primary-dark;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.inner {
+  @include container;
+  padding-block: $space-16;
+  display: grid;
+  grid-template-columns: 1.4fr 2fr;
+  gap: $space-16;
+
+  @include respond-below($bp-md) {
+    grid-template-columns: 1fr;
+    gap: $space-12;
+  }
+}
+
+.brandCol {
+  max-width: 320px;
+
+  p {
+    margin-top: $space-4;
+    line-height: 1.7;
+  }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-heading;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-8;
+
+  @include respond-below($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-8 $space-6;
+  }
+}
+
+.col {
+  h4 {
+    color: #fff;
+    font-family: $font-sans;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: $space-4;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+
+    &:hover { color: $color-secondary; }
+  }
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomInner {
+  @include container;
+  padding-block: $space-6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  font-size: 0.9rem;
+}
+
+.share {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $color-secondary;
+    color: #fff;
+  }
+}
