@@ -1,16 +1,21 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Camera, FolderOpen, Video } from 'lucide-react'
 import styles from './Projects.module.scss'
 
-const projects = [
+const projectGroups = [
   {
-    tag: 'Carpentry & Plumbing',
-    title: 'Kitchen Island Upgrade',
-    img: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1000&q=80',
+    icon: FolderOpen,
+    title: 'Portafolio por servicio',
+    desc: 'Los trabajos se organizan por área para reemplazar después cada placeholder con contenido real.',
   },
   {
-    tag: 'Plumbing & General Repair',
-    title: 'Modern Vanity Installation',
-    img: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1000&q=80',
+    icon: Video,
+    title: 'Videos por área',
+    desc: 'Cada servicio incluye espacios Video_1 y Video_2 para mostrar procesos o resultados reales.',
+  },
+  {
+    icon: Camera,
+    title: 'Fotos por área',
+    desc: 'Cada servicio incluye espacios Foto_1 y Foto_2 para documentar trabajos realizados.',
   },
 ]
 
@@ -20,22 +25,25 @@ export default function Projects() {
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
           <div>
-            <h2>Recent Projects</h2>
-            <p>A few recent jobs from around the neighborhood — the kind of work we&apos;d be glad to have in our own homes.</p>
+            <span className={styles.kicker}>Trabajos realizados</span>
+            <h2>Portafolio personal organizado por áreas de servicio</h2>
+            <p>
+              Esta sección está preparada para mostrar trabajos reales del
+              trabajador independiente, separados por carpintería, fontanería,
+              pintura, electricidad y demás servicios del hogar.
+            </p>
           </div>
-          <a className={styles.gallery} href="#">
-            View full gallery <ArrowRight size={18} />
+          <a className={styles.gallery} href="#work-areas">
+            Ver áreas de trabajo <ArrowRight size={18} />
           </a>
         </header>
 
         <div className={styles.grid}>
-          {projects.map((p) => (
-            <article key={p.title} className={styles.card}>
-              <img src={p.img} alt={p.title} loading="lazy" />
-              <div className={styles.overlay}>
-                <span className={styles.tag}>{p.tag}</span>
-                <h3>{p.title}</h3>
-              </div>
+          {projectGroups.map(({ icon: Icon, title, desc }) => (
+            <article key={title} className={styles.card}>
+              <span className={styles.icon}><Icon size={24} /></span>
+              <h3>{title}</h3>
+              <p>{desc}</p>
             </article>
           ))}
         </div>

@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-heading;
   line-height: 1.15;
   font-weight: 700;
-  letter-spacing: -0.015em; // tighten the serif at display sizes; stays >= -0.04em floor
+  letter-spacing: 0;
   text-wrap: balance;       // even line lengths in multi-line headings
 }
 

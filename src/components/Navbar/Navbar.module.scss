@@ -2,7 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid $color-border;
 }
 
@@ -12,7 +13,13 @@
   align-items: center;
   justify-content: space-between;
   gap: $space-8;
-  height: 80px;
+  min-height: 80px;
+
+  @include respond-below($bp-md) {
+    flex-wrap: wrap;
+    gap: $space-3;
+    padding-block: $space-3;
+  }
 }
 
 .brand {
@@ -51,18 +58,37 @@
   }
 
   @include respond-below($bp-lg) {
-    gap: $space-6;
+    gap: $space-4;
   }
 
   @include respond-below($bp-md) {
-    display: none;
+    order: 3;
+    flex: 0 0 100%;
+    margin: 0;
+    overflow-x: auto;
+    gap: $space-3;
+    padding-bottom: $space-1;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    a {
+      flex: 0 0 auto;
+      padding: $space-2 $space-3;
+      border-radius: $radius-pill;
+      background: $color-surface-alt;
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
   }
 }
 
 .actions {
   display: flex;
   align-items: center;
-  gap: $space-6;
+  gap: $space-3;
 }
 
 .callNow {
@@ -84,13 +110,16 @@
 }
 
 .cta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
   border: 0;
   background: $color-secondary;
   color: #fff;
   font-weight: 700;
   font-size: 0.95rem;
   padding: $space-3 $space-6;
-  border-radius: $radius-pill;
+  border-radius: $radius-md;
   box-shadow: 0 2px 8px rgba($color-secondary, 0.3);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -103,5 +132,14 @@
 
   &:active {
     transform: translateY(0);
+  }
+
+  @include respond-below($bp-sm) {
+    padding: $space-2 $space-3;
+    min-height: 42px;
+
+    svg {
+      display: none;
+    }
   }
 }

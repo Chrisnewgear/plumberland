@@ -1,48 +1,48 @@
 import { CircleCheck } from 'lucide-react'
 import styles from './About.module.scss'
 
-const foundation = [
-  { title: 'Integrity', desc: "We do what we say we're going to do, when we say we'll do it." },
-  { title: 'Excellence', desc: "We don't cut corners. Quality craftsmanship is our standard." },
-  { title: 'Community', desc: 'We are proud to serve and improve our local neighborhoods.' },
+const qualities = [
+  { title: 'Responsabilidad', desc: 'Atención cuidadosa desde la revisión inicial hasta la entrega del trabajo.' },
+  { title: 'Puntualidad', desc: 'Organización del tiempo y comunicación clara para coordinar cada visita.' },
+  { title: 'Trabajo versátil', desc: 'Capacidad para apoyar en diferentes áreas de reparación, mantenimiento y mejora del hogar.' },
 ]
 
 const imgOne =
-  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=640&q=80'
+  'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=640&q=80'
 const imgTwo =
-  'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=640&q=80'
+  'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&w=640&q=80'
 
 export default function About() {
   return (
     <section className={styles.about} id="about">
       <div className={styles.inner} data-reveal>
         <div className={styles.media}>
-          <img className={styles.imgOne} src={imgOne} alt="A ProFix craftsman fitting parts by hand" loading="lazy" />
-          <img className={styles.imgTwo} src={imgTwo} alt="A well-kept rack of professional hand tools" loading="lazy" />
+          <img className={styles.imgOne} src={imgOne} alt="Herramientas preparadas para servicios del hogar" loading="lazy" />
+          <img className={styles.imgTwo} src={imgTwo} alt="Materiales y herramientas para reparaciones y mejoras" loading="lazy" />
         </div>
 
         <div className={styles.copy}>
-          <h2>Building Trust, One Fix at a Time</h2>
+          <span className={styles.kicker}>Sobre mí</span>
+          <h2>Trabajador independiente para reparaciones, mantenimiento e instalaciones</h2>
           <p>
-            Finding a handyman who shows up on time, charges what they quoted,
-            and does the job right shouldn&apos;t be this hard. We built ProFix
-            to be the team we&apos;d want working on our own homes — clear about
-            pricing, careful in your space, dependable from the first call.
+            Esta página presenta los servicios de un profesional de servicios
+            para el hogar que trabaja de forma independiente, con atención directa
+            y compromiso en cada proyecto.
           </p>
           <p>
-            Our crew has spent 15 years and 12,000+ jobs earning that trust. We
-            lay down drop cloths, clean up before we leave, and treat your home
-            the way we&apos;d want ours treated.
+            El objetivo es mostrar las áreas de trabajo disponibles, organizar
+            fotos y videos reales por servicio y facilitar que cada visitante
+            pueda enviar una solicitud de contacto.
           </p>
 
-          <h3 className={styles.foundationTitle}>Our Foundation</h3>
+          <h3 className={styles.foundationTitle}>Forma de trabajo</h3>
           <ul className={styles.foundation}>
-            {foundation.map((f) => (
-              <li key={f.title}>
+            {qualities.map((quality) => (
+              <li key={quality.title}>
                 <CircleCheck size={22} className={styles.check} />
                 <div>
-                  <strong>{f.title}</strong>
-                  <span>{f.desc}</span>
+                  <strong>{quality.title}</strong>
+                  <span>{quality.desc}</span>
                 </div>
               </li>
             ))}

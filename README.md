@@ -1,60 +1,60 @@
-# ProFix Handyman — Modern Handyman Services Platform
+# Servicios del Hogar - Trabajador independiente
 
-A landing page built with **React + SASS (Vite)**, scaffolded from the Stitch
-project _"Modern Handyman Services Platform"_.
+Aplicación web construida con **React + SASS (Vite)** para presentar los
+servicios de un único trabajador independiente dedicado a reparaciones,
+mantenimiento, instalaciones y mejoras del hogar.
 
-> ⚠️ The visuals below are **placeholder content**. The actual Stitch screen
-> (image + code) is gated behind Google login and could not be downloaded from
-> the screen ID alone. Drop the real Stitch export in to finalize — see
-> [Wiring in the Stitch design](#wiring-in-the-stitch-design).
+La experiencia principal permite conocer al trabajador, revisar servicios,
+explorar trabajos realizados por área con placeholders de videos y fotos, y
+enviar una solicitud de contacto.
 
-## Stitch source
+## Funcionalidades representadas
 
-- **Project:** Modern Handyman Services Platform (`14157405647238363465`)
-- **Screen:** ProFix Handyman – Complete Landing Page (`6f919d47ad584b43ada4e69e590948d8`)
+- Hero personal con el mensaje: "Soluciones confiables para reparaciones y mejoras del hogar".
+- Sección "Sobre mí" con enfoque en responsabilidad, puntualidad y trabajo versátil.
+- Servicios: carpintería, fontanería, pintura, electricidad, albañilería,
+  limpieza, jardinería, cerrajería, aire acondicionado, vidriería, tapicería y
+  remodelaciones.
+- Portafolio personal organizado por áreas de trabajo.
+- Bloques por área con placeholders `Información Video_1`, `Información Video_2`,
+  `Información Foto_1` y `Información Foto_2`.
+- Formulario de contacto con nombre, teléfono, correo, servicio requerido y
+  descripción del problema.
 
 ## Getting started
 
 ```bash
 npm install
-npm run dev      # start the dev server
-npm run build    # production build
-npm run preview  # preview the production build
+npm run dev
+npm run build
+npm run preview
 ```
 
 ## Project structure
 
-```
+```text
 src/
-  main.jsx                 # app entry, imports global.scss
-  App.jsx                  # composes the landing-page sections
+  main.jsx
+  App.jsx
   styles/
-    _tokens.scss           # design tokens + mixins (auto-injected into every module)
-    global.scss            # resets + base element styles
+    _tokens.scss
+    global.scss
   components/
-    Navbar/                # Navbar.jsx + Navbar.module.scss
+    Navbar/
     Hero/
+    About/
+    Stats/
     Services/
-    HowItWorks/
-    Testimonials/
+    Projects/
+    WorkerProfile/
+    Guarantee/
+    Faq/
     CTA/
     Footer/
-  assets/                  # drop Stitch image assets here
 ```
 
-### SASS setup
+## SASS setup
 
-- Each component owns a CSS-module SASS file (`*.module.scss`) for scoped styles.
-- `src/styles/_tokens.scss` holds colors, spacing, radii, and mixins. It is
-  auto-injected into every `*.module.scss` via `additionalData` in
-  `vite.config.js`, so tokens like `$color-primary` and `@include container`
-  are available without an explicit `@use`.
-- `@` is aliased to `/src`.
-
-## Wiring in the Stitch design
-
-1. Export the screen from Stitch (Copy code / Export → Code) and save the image
-   into `src/assets/`.
-2. Update `src/styles/_tokens.scss` with the design's real colors and type scale.
-3. Translate the Stitch markup into the corresponding component, replacing the
-   placeholder hero image in `Hero.jsx` with the imported asset.
+Cada componente usa CSS Modules con SASS (`*.module.scss`). Los tokens globales
+de color, spacing, radius, sombras y mixins viven en `src/styles/_tokens.scss` y
+se inyectan automáticamente desde `vite.config.js`.

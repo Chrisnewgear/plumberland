@@ -1,12 +1,14 @@
-import { Phone } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import BrandMark from '../BrandMark/BrandMark.jsx'
 import styles from './Navbar.module.scss'
 
 const links = [
-  { label: 'Services', href: '#services', active: true },
-  { label: 'About', href: '#about' },
-  { label: 'Reviews', href: '#reviews' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Inicio', href: '#top', active: true },
+  { label: 'Sobre mí', href: '#about' },
+  { label: 'Servicios', href: '#services' },
+  { label: 'Trabajos realizados', href: '#projects' },
+  { label: 'Áreas de trabajo', href: '#work-areas' },
+  { label: 'Contacto', href: '#contact' },
 ]
 
 export default function Navbar() {
@@ -15,7 +17,7 @@ export default function Navbar() {
       <div className={styles.inner}>
         <a className={styles.brand} href="#top">
           <BrandMark size={28} />
-          ProFix Handyman
+          Servicios del Hogar
         </a>
 
         <nav className={styles.nav} aria-label="Primary">
@@ -31,13 +33,14 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.actions}>
-          <a className={styles.callNow} href="tel:+15551234567">
+          <a className={styles.callNow} href="#contact">
             <Phone size={18} />
-            Call Now
+            Contactar
           </a>
-          <button className={styles.cta} type="button">
-            Free Estimate
-          </button>
+          <a className={styles.cta} href="#contact">
+            <Mail size={18} />
+            Enviar solicitud
+          </a>
         </div>
       </div>
     </header>

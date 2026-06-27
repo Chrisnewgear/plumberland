@@ -1,61 +1,65 @@
-import { ShieldCheck, Timer, ReceiptText, Award } from 'lucide-react'
+import { ClipboardList, Eye, MailCheck, SearchCheck, UserRound } from 'lucide-react'
 import styles from './Guarantee.module.scss'
 
-const guarantees = [
+const steps = [
   {
-    icon: Timer,
-    title: 'On-Time Arrival',
-    desc: 'We value your time. Our technicians arrive within the scheduled window, ready to work.',
+    icon: UserRound,
+    title: 'Conoce al trabajador independiente',
+    desc: 'Revisa la presentación general, la forma de trabajo y las áreas en las que puede ayudar.',
   },
   {
-    icon: ReceiptText,
-    title: 'Upfront Pricing',
-    desc: 'No hidden fees or surprise charges. We provide clear estimates before any work begins.',
+    icon: SearchCheck,
+    title: 'Revisa los servicios disponibles',
+    desc: 'Explora las tarjetas de carpintería, fontanería, pintura, electricidad y demás servicios del hogar.',
   },
   {
-    icon: Award,
-    title: 'Expert Craftsmanship',
-    desc: 'Our team consists of skilled, vetted professionals who take pride in doing the job right the first time.',
+    icon: Eye,
+    title: 'Mira trabajos por área',
+    desc: 'Entra a los bloques de cada área y usa los espacios Video_1, Video_2, Foto_1 y Foto_2 para contenido real.',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Describe lo que necesitas',
+    desc: 'Completa la solicitud con tus datos y una descripción general del problema o mejora que buscas.',
+  },
+  {
+    icon: MailCheck,
+    title: 'Envía la solicitud',
+    desc: 'El formulario queda preparado para contactar directamente al trabajador cuando se conecte a un canal real.',
   },
 ]
 
-const img =
-  'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80'
-
 export default function Guarantee() {
   return (
-    <section className={styles.guarantee} id="guarantee">
+    <section className={styles.guarantee} id="process">
       <div className={styles.inner} data-reveal>
         <div className={styles.copy}>
           <span className={styles.badge}>
-            <ShieldCheck size={16} />
-            The ProFix Guarantee
+            <SearchCheck size={16} />
+            Flujo de la página
           </span>
-          <h2>Why Homeowners Trust ProFix</h2>
+          <h2>De la revisión de servicios al contacto directo</h2>
           <p>
-            We understand that inviting someone into your home requires trust.
-            That&apos;s why we&apos;ve built our business on reliability,
-            transparency, and uncompromising quality.
+            La experiencia está pensada para que el visitante conozca al
+            trabajador independiente, revise sus áreas de servicio y decida si
+            desea enviar una solicitud.
           </p>
-
-          <ul className={styles.features}>
-            {guarantees.map(({ icon: Icon, title, desc }) => (
-              <li key={title} className={styles.feature}>
-                <span className={styles.featureIcon} aria-hidden="true">
-                  <Icon size={20} />
-                </span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
 
-        <div className={styles.media}>
-          <img src={img} alt="A ProFix pro shaking hands with a homeowner at the door" loading="lazy" />
-        </div>
+        <ol className={styles.features}>
+          {steps.map(({ icon: Icon, title, desc }, index) => (
+            <li key={title} className={styles.feature}>
+              <span className={styles.featureIcon} aria-hidden="true">
+                <Icon size={20} />
+              </span>
+              <div>
+                <small>Paso {index + 1}</small>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   )

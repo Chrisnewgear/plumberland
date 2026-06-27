@@ -3,9 +3,33 @@ import BrandMark from '../BrandMark/BrandMark.jsx'
 import styles from './Footer.module.scss'
 
 const columns = [
-  { title: 'Services', links: ['Emergency Repairs', 'Plumbing', 'Electrical', 'Carpentry'] },
-  { title: 'Company', links: ['About Us', 'Reviews', 'FAQ', 'Contact'] },
-  { title: 'Legal', links: ['Privacy Policy', 'Terms of Service'] },
+  {
+    title: 'Página',
+    links: [
+      { label: 'Inicio', href: '#top' },
+      { label: 'Sobre mí', href: '#about' },
+      { label: 'Servicios', href: '#services' },
+      { label: 'Contacto', href: '#contact' },
+    ],
+  },
+  {
+    title: 'Servicios',
+    links: [
+      { label: 'Carpintería', href: '#services' },
+      { label: 'Fontanería', href: '#services' },
+      { label: 'Pintura', href: '#services' },
+      { label: 'Electricidad', href: '#services' },
+    ],
+  },
+  {
+    title: 'Portafolio',
+    links: [
+      { label: 'Trabajos realizados', href: '#projects' },
+      { label: 'Áreas de trabajo', href: '#work-areas' },
+      { label: 'Videos por área', href: '#work-areas' },
+      { label: 'Fotos por área', href: '#work-areas' },
+    ],
+  },
 ]
 
 export default function Footer() {
@@ -15,9 +39,9 @@ export default function Footer() {
         <div className={styles.brandCol}>
           <a className={styles.brand} href="#top">
             <BrandMark size={26} />
-            ProFix
+            Servicios del Hogar
           </a>
-          <p>The dependable local team for every repair and improvement around your home.</p>
+          <p>Página personal de un trabajador independiente para reparaciones, mantenimiento e instalaciones del hogar.</p>
         </div>
 
         <div className={styles.cols}>
@@ -26,8 +50,8 @@ export default function Footer() {
               <h4>{col.title}</h4>
               <ul>
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#">{link}</a>
+                  <li key={link.label}>
+                    <a href={link.href}>{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -38,8 +62,8 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <span>© {new Date().getFullYear()} ProFix Handyman Services. Licensed &amp; Insured.</span>
-          <a className={styles.share} href="#" aria-label="Share">
+          <span>© {new Date().getFullYear()} Servicios del Hogar. Trabajador independiente.</span>
+          <a className={styles.share} href="#top" aria-label="Volver al inicio">
             <Share2 size={18} />
           </a>
         </div>

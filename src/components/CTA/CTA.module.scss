@@ -8,7 +8,7 @@
 }
 
 .card {
-  max-width: 720px;
+  max-width: 860px;
   margin-inline: auto;
   text-align: center;
   background: #fff;
@@ -42,44 +42,83 @@
   max-width: 520px;
 }
 
-.call {
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+  text-align: left;
+
+  @include respond-below($bp-sm) {
+    grid-template-columns: 1fr;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+    color: $color-ink;
+    font-weight: 800;
+    font-size: 0.92rem;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    background: $color-surface-alt;
+    color: $color-ink;
+    font: inherit;
+    padding: $space-3 $space-4;
+    outline: 0;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .primary {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.contactOptions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-3;
+}
+
+.primary,
+.secondary {
   display: inline-flex;
   align-items: center;
-  gap: $space-3;
-  margin-top: $space-2;
-}
+  justify-content: center;
+  gap: $space-2;
+  border: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: $space-4 $space-8;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-.callIcon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #e0e3f5;
-  color: $color-primary;
-}
-
-.callText {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  line-height: 1.2;
-
-  span { color: $color-muted; font-size: 0.85rem; }
-  strong { color: $color-ink; font-size: 1.35rem; font-family: $font-heading; }
+  @include respond-below($bp-sm) {
+    width: 100%;
+  }
 }
 
 .primary {
-  border: 0;
   background: $color-secondary;
   color: #fff;
-  font-weight: 700;
-  font-size: 1.05rem;
-  padding: $space-4 $space-12;
-  border-radius: $radius-md;
   box-shadow: 0 6px 18px rgba($color-secondary, 0.35);
-  cursor: pointer;
-  transition: all 0.2s ease;
 
   &:hover {
     background: $color-secondary-dark;
@@ -91,12 +130,17 @@
   }
 }
 
+.secondary {
+  background: #eef4ff;
+  color: $color-primary;
+
+  &:hover {
+    background: #dbeafe;
+    transform: translateY(-2px);
+  }
+}
+
 .note {
-  display: inline-flex;
-  align-items: center;
-  gap: $space-2;
   color: $color-muted;
   font-size: 0.9rem;
-
-  svg { color: $color-ink; }
 }

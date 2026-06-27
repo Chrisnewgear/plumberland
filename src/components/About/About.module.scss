@@ -51,6 +51,14 @@
   }
 }
 
+.kicker {
+  color: $color-secondary;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
 .foundationTitle {
   font-size: 1.4rem;
   margin-top: $space-6;

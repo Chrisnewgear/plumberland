@@ -1,9 +1,9 @@
 {
-  "name": "profix-handyman",
+  "name": "servicios-hogar-independiente",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "ProFix Handyman — Modern Handyman Services Platform landing page (React + SASS)",
+  "description": "Página personal para un trabajador independiente de servicios del hogar (React + SASS)",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,6 +12,7 @@
   "dependencies": {
     "framer-motion": "^11.18.2",
     "lucide-react": "^1.21.0",
+    "node": "^24.18.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

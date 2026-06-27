@@ -1,51 +1,45 @@
 # Product
 
-## Register
+## Enfoque
 
-brand
+Página personal/profesional para un único trabajador independiente de servicios
+para el hogar.
 
-## Users
+## Usuario
 
-Homeowners (and a few property managers) with a backlog of repairs and improvements
-they've been putting off. They're busy, a little wary of letting a stranger into their
-home, and have been burned before by no-shows, vague pricing, or sloppy work. They want
-to hand the job to someone competent and trustworthy, fast — and they decide quickly,
-often from a phone, based on whether the business *feels* dependable.
+Visitantes que necesitan contactar directamente a una persona para trabajos de
+carpintería, fontanería, pintura, electricidad, albañilería, limpieza,
+jardinería, cerrajería, aire acondicionado, vidriería, tapicería,
+remodelaciones y otros arreglos del hogar.
 
-## Product Purpose
+## Propósito del producto
 
-A landing page for ProFix Handyman, a local home-repair and maintenance service. Its job
-is conversion through trust: turn a wary visitor into an estimate request or phone call by
-proving competence, reliability, and human accountability before asking for anything.
-Success = free-estimate requests and calls placed.
+Presentar de forma clara los servicios, la forma de trabajo y un portafolio
+organizado por áreas, con espacios preparados para agregar videos y fotos reales
+de trabajos realizados.
 
-## Brand Personality
+El flujo principal es: el visitante entra a la página, conoce al trabajador
+independiente, revisa los servicios disponibles, entra a las áreas de trabajo,
+ve placeholders de videos y fotos, decide contactar y envía una solicitud.
 
-Trustworthy and established. Dependable, grounded, been-doing-this-for-years. The voice is
-clear, confident, and reassuring — no hype, no exclamation marks, no "cheapest quote"
-hustle. Established local craftsmanship that lets the proof do the talking.
+## Personalidad de marca
 
-## Anti-references
+Profesional, confiable, sencilla y cercana. La página debe transmitir atención
+directa, responsabilidad, puntualidad y compromiso sin inventar datos
+específicos.
 
-- **Generic AI-template landing pages** — identical icon-card grids, a tracked-uppercase
-  eyebrow over every section, the "a model made this" sameness.
-- **Cold / corporate** — faceless enterprise-SaaS sterility with no human warmth.
-- **Cheap / discount** — spammy, bargain-bin, low-trust "lowest quote wins" energy.
-- **Cluttered / loud** — busy, overstimulating, too many competing elements.
+## Principios de diseño
 
-## Design Principles
+- Evitar cualquier lenguaje de buscador, plataforma de varios trabajadores o perfiles múltiples.
+- Usar textos genéricos cuando no exista información real del trabajador.
+- No inventar nombres, precios, años de experiencia, comentarios ni testimonios.
+- Preparar placeholders claros para videos y fotos por cada área de trabajo.
+- Usar azul oscuro para confianza, naranja para acciones principales, blanco y
+  gris claro para limpieza visual, y verde para estados positivos.
+- Mantener una interfaz responsive, limpia y fácil de escanear.
 
-- **Earn trust before asking.** Proof, guarantees, real faces, and concrete numbers come
-  before every CTA — never a naked "Book now."
-- **Competence through restraint.** Order, clean spacing, and quiet confidence read as
-  professional. Loud reads as desperate.
-- **Human warmth over corporate polish.** Real people, plain language, a local voice —
-  not stock-smooth marketing gloss.
-- **Every claim is concrete.** Numbers, names, and specifics ("Usually within 2 hours",
-  "12,000+ jobs") instead of adjectives ("the best", "amazing").
+## Accesibilidad
 
-## Accessibility & Inclusion
-
-Target WCAG 2.1 AA. Body text ≥4.5:1 contrast (mind muted gray on the tinted gray
-sections). Visible keyboard focus on all interactive elements. `prefers-reduced-motion`
-honored for the scroll reveals and stat counters. Color is never the only signal.
+Objetivo WCAG 2.1 AA. Texto con contraste suficiente, foco visible en elementos
+interactivos, `prefers-reduced-motion` respetado en animaciones y estados que no
+dependen solo del color.

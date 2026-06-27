@@ -1,46 +1,33 @@
 import {
-  Droplets,
-  Zap,
-  PencilRuler,
-  PaintRoller,
-  Rows3,
-  Wrench,
   ArrowRight,
-  LayoutGrid,
+  Building2,
+  DoorClosed,
+  Droplets,
+  Hammer,
+  KeyRound,
+  Leaf,
+  PaintRoller,
+  Snowflake,
+  Sparkles,
+  Sofa,
+  Wrench,
+  Zap,
 } from 'lucide-react'
 import styles from './Services.module.scss'
 
 const services = [
-  {
-    icon: Droplets,
-    title: 'Plumbing',
-    desc: 'Leak repairs, fixture installations, pipe unclogging, and routine maintenance to keep your water flowing smoothly.',
-  },
-  {
-    icon: Zap,
-    title: 'Electrical',
-    desc: 'Light fixture installation, outlet repairs, ceiling fan setup, and safe troubleshooting for minor electrical issues.',
-  },
-  {
-    icon: PencilRuler,
-    title: 'Carpentry',
-    desc: 'Custom shelving, door repairs, trim installation, deck maintenance, and general woodwork to enhance your space.',
-  },
-  {
-    icon: PaintRoller,
-    title: 'Painting',
-    desc: 'Interior and exterior touch-ups, accent walls, cabinet refinishing, and complete room repainting with precise edges.',
-  },
-  {
-    icon: Rows3,
-    title: 'Drywall',
-    desc: 'Patching holes, repairing water damage, texturing, and finishing to ensure your walls look perfectly seamless.',
-  },
-  {
-    icon: Wrench,
-    title: 'General Repairs',
-    desc: 'Furniture assembly, TV mounting, gutter cleaning, weatherstripping, and handling your entire to-do list.',
-  },
+  { icon: Hammer, title: 'Carpintería', desc: 'Muebles, puertas, repisas, ajustes y trabajos generales en madera.' },
+  { icon: Droplets, title: 'Fontanería', desc: 'Reparaciones, instalaciones, fugas, griferías y mantenimiento de tuberías.' },
+  { icon: PaintRoller, title: 'Pintura', desc: 'Pintura interior, exterior, retoques, preparación de superficies y acabados.' },
+  { icon: Zap, title: 'Electricidad', desc: 'Instalaciones, revisiones, luminarias, tomacorrientes y reparaciones básicas.' },
+  { icon: Building2, title: 'Albañilería', desc: 'Paredes, pisos, enlucidos, reparaciones, cerámica y obra menor.' },
+  { icon: Sparkles, title: 'Limpieza', desc: 'Limpieza profunda, post obra, mantenimiento y preparación de espacios.' },
+  { icon: Leaf, title: 'Jardinería', desc: 'Poda, césped, riego, mantenimiento y recuperación de áreas verdes.' },
+  { icon: KeyRound, title: 'Cerrajería', desc: 'Aperturas, cambios de cerradura, copias, seguridad y emergencias.' },
+  { icon: Snowflake, title: 'Aire acondicionado', desc: 'Instalación, mantenimiento, limpieza y revisión general de equipos.' },
+  { icon: DoorClosed, title: 'Vidriería', desc: 'Cambio de vidrios, mamparas, ventanas, espejos y ajustes de aluminio.' },
+  { icon: Sofa, title: 'Tapicería', desc: 'Reparación, renovación y retapizado de muebles, sillas y cabeceros.' },
+  { icon: Wrench, title: 'Remodelaciones', desc: 'Mejoras generales para baños, cocinas, habitaciones y espacios del hogar.' },
 ]
 
 export default function Services() {
@@ -48,10 +35,11 @@ export default function Services() {
     <section className={styles.services} id="services">
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
-          <h2>One team for everything on your list</h2>
+          <span className={styles.kicker}>Servicios</span>
+          <h2>Áreas de trabajo para arreglos y mejoras del hogar</h2>
           <p>
-            From a leaky faucet to a full weekend of repairs, it&apos;s all
-            handled by the same vetted crew. No job is too small.
+            Estas son las áreas principales en las que el trabajador independiente
+            puede realizar mantenimiento, reparación, instalación y mejoras.
           </p>
         </header>
 
@@ -63,17 +51,11 @@ export default function Services() {
               </span>
               <h3>{title}</h3>
               <p>{desc}</p>
-              <a className={styles.more} href="#">
-                Learn more <ArrowRight size={16} />
+              <a className={styles.more} href="#work-areas">
+                Ver trabajos del área <ArrowRight size={16} />
               </a>
             </article>
           ))}
-        </div>
-
-        <div className={styles.footer}>
-          <button className={styles.viewAll} type="button">
-            View All Services <LayoutGrid size={18} />
-          </button>
         </div>
       </div>
     </section>

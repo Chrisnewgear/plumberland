@@ -4,20 +4,20 @@ import styles from './Faq.module.scss'
 
 const faqs = [
   {
-    q: 'Are your handymen licensed and insured?',
-    a: 'Absolutely. Every ProFix professional is fully licensed where required, background-checked, and covered by our liability insurance — so your home and your peace of mind are protected.',
+    q: '¿Esta página pertenece a una empresa?',
+    a: 'No. La página está enfocada en un único trabajador independiente de servicios para el hogar.',
   },
   {
-    q: 'How do you charge for your services?',
-    a: 'We provide clear, upfront estimates before any work begins. Depending on the job, we charge a flat project rate or an hourly rate, with no hidden fees or surprise charges.',
+    q: '¿Los videos y fotos ya son trabajos reales?',
+    a: 'No necesariamente. Cuando no existan archivos reales, se muestran placeholders identificados como Video_1, Video_2, Foto_1 y Foto_2 por cada área.',
   },
   {
-    q: 'Do I need to provide tools or materials?',
-    a: 'No. Our technicians arrive fully equipped with professional-grade tools. If your project requires specific materials, we will source them or advise you in advance.',
+    q: '¿Qué información debo enviar en la solicitud?',
+    a: 'Nombre, teléfono, correo, servicio requerido y una descripción general del problema o mejora del hogar.',
   },
   {
-    q: 'Do you guarantee your work?',
-    a: 'Yes. All of our work is backed by the ProFix satisfaction guarantee. If something isn’t right, we’ll come back and make it right at no extra cost.',
+    q: '¿Se inventan precios, comentarios o datos de experiencia?',
+    a: 'No. La página usa textos generales y placeholders cuando falta información real.',
   },
 ]
 
@@ -28,8 +28,8 @@ export default function Faq() {
     <section className={styles.faq} id="faq">
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
-          <h2>Frequently Asked Questions</h2>
-          <p>Find answers to common questions about our services and processes.</p>
+          <h2>Preguntas frecuentes</h2>
+          <p>Información general sobre la página personal de servicios del hogar.</p>
         </header>
 
         <div className={styles.list}>
