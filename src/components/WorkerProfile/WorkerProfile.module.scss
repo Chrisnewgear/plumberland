@@ -25,7 +25,7 @@
 }
 
 .kicker {
-  color: $color-secondary;
+  color: $color-secondary-ink;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -43,6 +43,16 @@
   border-radius: $radius-md;
   background: $color-surface;
   box-shadow: $shadow-sm;
+  @include reveal-stagger(12, 0.04s);
+  transition:
+    box-shadow 0.2s $ease-out,
+    border-color 0.2s $ease-out;
+
+  &:hover,
+  &:focus-within {
+    border-color: $color-border-strong;
+    box-shadow: $shadow-md;
+  }
 }
 
 .areaHead {
@@ -134,5 +144,5 @@
 }
 
 .placeholder[data-type='video'] .placeholderIcon {
-  color: $color-secondary;
+  color: $color-secondary-ink;
 }

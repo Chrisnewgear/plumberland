@@ -4,28 +4,28 @@ import styles from './Guarantee.module.scss'
 const steps = [
   {
     icon: UserRound,
-    title: 'Conoce al trabajador independiente',
-    desc: 'Revisa la presentación general, la forma de trabajo y las áreas en las que puede ayudar.',
+    title: 'Mira cómo trabajamos',
+    desc: 'Conoce la forma de trabajo y qué puedes esperar, antes de tomar cualquier decisión.',
   },
   {
     icon: SearchCheck,
-    title: 'Revisa los servicios disponibles',
-    desc: 'Explora las tarjetas de carpintería, fontanería, pintura, electricidad y demás servicios del hogar.',
+    title: 'Mira lo que puede hacer',
+    desc: 'Desde carpintería hasta electricidad, revisa todos los servicios para tu hogar.',
   },
   {
     icon: Eye,
-    title: 'Mira trabajos por área',
-    desc: 'Entra a los bloques de cada área y usa los espacios Video_1, Video_2, Foto_1 y Foto_2 para contenido real.',
+    title: 'Comprueba su trabajo',
+    desc: 'Entra a cada área y mira el resultado con fotos y videos de trabajos reales.',
   },
   {
     icon: ClipboardList,
-    title: 'Describe lo que necesitas',
-    desc: 'Completa la solicitud con tus datos y una descripción general del problema o mejora que buscas.',
+    title: 'Cuéntale qué necesitas',
+    desc: 'Describe el problema o la mejora que buscas y deja tus datos de contacto.',
   },
   {
     icon: MailCheck,
-    title: 'Envía la solicitud',
-    desc: 'El formulario queda preparado para contactar directamente al trabajador cuando se conecte a un canal real.',
+    title: 'Pide tu presupuesto',
+    desc: 'Envía tu solicitud y coordinamos juntos la visita para empezar el trabajo.',
   },
 ]
 
@@ -36,13 +36,12 @@ export default function Guarantee() {
         <div className={styles.copy}>
           <span className={styles.badge}>
             <SearchCheck size={16} />
-            Flujo de la página
+            Cómo funciona
           </span>
-          <h2>De la revisión de servicios al contacto directo</h2>
+          <h2>Pedir ayuda para tu hogar es así de simple</h2>
           <p>
-            La experiencia está pensada para que el visitante conozca al
-            trabajador independiente, revise sus áreas de servicio y decida si
-            desea enviar una solicitud.
+            Sin registros ni complicaciones. Conoce cómo trabajamos, revisa el
+            trabajo realizado y, cuando lo tengas claro, envía tu solicitud.
           </p>
         </div>
 

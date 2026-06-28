@@ -64,7 +64,7 @@
   a {
     color: rgba(255, 255, 255, 0.65);
     font-size: 0.95rem;
-    transition: color 0.2s ease;
+    transition: color 0.2s $ease-out;
 
     &:hover { color: $color-secondary; }
   }
@@ -92,10 +92,12 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.7);
-  transition: all 0.2s ease;
+  transition:
+    background 0.2s $ease-out,
+    color 0.2s $ease-out;
 
   &:hover {
-    background: $color-secondary;
+    background: $color-secondary-dark; // AA: white icon 4.52:1
     color: #fff;
   }
 }

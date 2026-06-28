@@ -1,5 +1,5 @@
 .faq {
-  background: $color-surface;
+  background: $color-surface-alt;
 }
 
 .inner {
@@ -30,15 +30,20 @@
 }
 
 .item {
-  background: $color-surface-alt;
-  border: 1px solid transparent;
+  background: $color-surface;
+  border: 1px solid $color-border;
   border-radius: $radius-md;
-  transition: border-color 0.2s ease;
+  transition:
+    border-color 0.2s $ease-out,
+    box-shadow 0.2s $ease-out;
+
+  &:hover {
+    border-color: $color-border-strong;
+  }
 }
 
 .itemOpen {
-  border-color: $color-border;
-  background: $color-surface;
+  border-color: $color-border-strong;
   box-shadow: $shadow-sm;
 }
 
@@ -57,16 +62,21 @@
   font-size: 1.05rem;
   font-weight: 700;
   color: $color-ink;
+  transition: color 0.2s $ease-out;
+
+  &:hover {
+    color: $color-secondary-dark;
+  }
 }
 
 .chevron {
   flex-shrink: 0;
   color: $color-muted;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s $ease-out;
 
   .itemOpen & {
     transform: rotate(180deg);
-    color: $color-secondary;
+    color: $color-secondary-ink;
   }
 }
 
@@ -74,4 +84,19 @@
   padding: 0 $space-6 $space-6;
   color: $color-muted;
   line-height: 1.7;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: answer-in 0.28s $ease-out both;
+  }
+}
+
+@keyframes answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

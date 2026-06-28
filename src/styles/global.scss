@@ -11,10 +11,14 @@ html {
   scroll-padding-top: 96px; // keep anchored sections clear of the sticky navbar
 }
 
-// Visible keyboard focus on every interactive element
+// Visible keyboard focus on every interactive element.
+// Dual-tone ring: a deep-blue outline carries contrast on light surfaces,
+// while the white halo carries it on the dark hero — so the indicator clears
+// 3:1 against any background it lands on (a single orange ring did not).
 :focus-visible {
-  outline: 2px solid $color-secondary;
-  outline-offset: 3px;
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9);
   border-radius: $radius-sm;
 }
 
@@ -23,9 +27,8 @@ html {
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+    opacity 0.7s $ease-out,
+    transform 0.7s $ease-out;
 }
 
 [data-reveal].is-visible {

@@ -34,7 +34,7 @@
 .kicker {
   display: inline-flex;
   margin-bottom: $space-3;
-  color: $color-secondary;
+  color: $color-secondary-ink;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -45,24 +45,20 @@
   display: inline-flex;
   align-items: center;
   gap: $space-2;
-  color: $color-secondary;
+  color: $color-secondary-ink;
   font-weight: 900;
   white-space: nowrap;
 
-  svg { transition: transform 0.2s ease; }
+  svg { transition: transform 0.2s $ease-out; }
   &:hover svg { transform: translateX(4px); }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: $space-6;
 
-  @include respond-below($bp-lg) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include respond-below($bp-sm) {
+  @include respond-below($bp-md) {
     grid-template-columns: 1fr;
   }
 }
@@ -72,6 +68,8 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   background: $color-surface-alt;
+  @include card-interactive;
+  @include reveal-stagger(3, 0.08s);
 
   h3 {
     font-family: $font-sans;

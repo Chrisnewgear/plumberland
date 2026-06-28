@@ -29,7 +29,7 @@
   padding: $space-2 $space-4;
   border-radius: $radius-pill;
   background: rgba($color-secondary, 0.12);
-  color: $color-secondary-dark;
+  color: $color-secondary-ink;
   font-size: 0.85rem;
   font-weight: 700;
 }
@@ -62,10 +62,16 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   background: $color-surface-alt;
+  @include card-interactive;
+  @include reveal-stagger(6, 0.07s);
+
+  &:hover .featureIcon {
+    background: $color-secondary;
+  }
 
   small {
     display: block;
-    color: $color-secondary;
+    color: $color-secondary-ink;
     font-weight: 900;
     margin-bottom: $space-1;
   }
@@ -92,4 +98,5 @@
   border-radius: 50%;
   background: $color-primary;
   color: #fff;
+  transition: background 0.2s $ease-out;
 }

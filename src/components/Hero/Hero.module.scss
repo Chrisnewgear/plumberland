@@ -1,13 +1,31 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(115deg, rgba(11, 31, 54, 0.94), rgba(18, 54, 95, 0.88)),
-    url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1800&q=80&auto=format&fit=crop') center/cover;
+  background: $color-primary-dark; // base behind the parallax photo
   color: #fff;
 }
 
+// Parallax photo layer. Extended past the top/bottom edges so the vertical
+// drift never exposes a gap; only `transform` is animated (compositor-friendly).
+.heroBg {
+  position: absolute;
+  inset: -14% 0;
+  background:
+    url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1800&q=80&auto=format&fit=crop')
+    center / cover;
+  will-change: transform;
+}
+
+// Static gradient overlay keeps text contrast constant while the photo moves.
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(11, 31, 54, 0.94), rgba(18, 54, 95, 0.88));
+}
+
 .inner {
+  position: relative;
+  z-index: 1;
   @include container;
   min-height: min(760px, calc(92vh - 80px));
   padding-block: $space-24;
@@ -17,12 +35,13 @@
   gap: $space-10;
 
   @include respond-below($bp-lg) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     min-height: auto;
   }
 }
 
 .copy {
+  min-width: 0;
   max-width: 690px;
   display: flex;
   flex-direction: column;
@@ -31,6 +50,7 @@
 
 .badge {
   align-self: flex-start;
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   gap: $space-2;
@@ -41,8 +61,10 @@
   color: $color-accent-soft;
   font-size: 0.9rem;
   font-weight: 700;
+  line-height: 1.3;
 
   svg {
+    flex-shrink: 0;
     color: $color-success;
   }
 }
@@ -51,7 +73,7 @@
   color: #fff;
   font-size: clamp(2.4rem, 6vw, 4.4rem);
   line-height: 1.08;
-  letter-spacing: 0;
+  letter-spacing: -0.015em;
 }
 
 .copy p {
@@ -77,20 +99,16 @@
   padding: $space-4 $space-8;
   border-radius: $radius-md;
   font-weight: 800;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
+  @include pressable;
 }
 
 .primary {
-  background: $color-secondary;
+  background: $color-secondary-dark; // AA: white text 4.52:1
   color: #fff;
   box-shadow: 0 12px 32px rgba($color-secondary, 0.35);
 
   &:hover {
-    background: $color-secondary-dark;
+    background: $color-secondary-ink;
   }
 }
 
@@ -117,51 +135,11 @@
   max-width: 680px;
 
   label {
-    color: $color-ink;
+    color: $color-muted;
     font-weight: 800;
-  }
-}
-
-.searchControl {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: $space-3;
-  border: 1px solid $color-border;
-  border-radius: $radius-md;
-  padding: $space-2;
-  background: $color-surface-alt;
-
-  svg {
-    margin-left: $space-2;
-    color: $color-primary;
-  }
-
-  input {
-    min-width: 0;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: $color-ink;
-    font: inherit;
-  }
-
-  button {
-    border: 0;
-    border-radius: $radius-sm;
-    background: $color-primary;
-    color: #fff;
-    font-weight: 800;
-    padding: $space-3 $space-5;
-  }
-
-  @include respond-below($bp-sm) {
-    grid-template-columns: auto 1fr;
-
-    button {
-      grid-column: 1 / -1;
-      width: 100%;
-    }
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 }
 
@@ -172,12 +150,21 @@
 
   a {
     display: inline-flex;
-    padding: $space-1 $space-3;
+    padding: $space-2 $space-3;
     border-radius: $radius-pill;
     background: #eef4ff;
     color: $color-primary;
     font-size: 0.9rem;
     font-weight: 700;
+    text-transform: capitalize;
+    transition:
+      background 0.2s $ease-out,
+      color 0.2s $ease-out;
+
+    &:hover {
+      background: $color-primary;
+      color: #fff;
+    }
   }
 }
 

@@ -38,12 +38,6 @@
       display: none;
     }
   }
-
-  &:nth-child(2)::after {
-    @include respond-below($bp-sm) {
-      display: none;
-    }
-  }
 }
 
 .value {
@@ -51,7 +45,7 @@
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 900;
   line-height: 1;
-  color: $color-secondary;
+  color: $color-secondary-ink;
   font-variant-numeric: tabular-nums;
 }
 

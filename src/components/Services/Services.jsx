@@ -36,12 +36,24 @@ export default function Services() {
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
           <span className={styles.kicker}>Servicios</span>
-          <h2>Áreas de trabajo para arreglos y mejoras del hogar</h2>
+          <h2>Todo lo que tu hogar necesita, en un mismo lugar</h2>
           <p>
-            Estas son las áreas principales en las que el trabajador independiente
-            puede realizar mantenimiento, reparación, instalación y mejoras.
+            Carpintería, fontanería, pintura, electricidad y mucho más. Nos
+            ocupamos de cada trabajo para que no tengas que buscar en varios
+            lados.
           </p>
         </header>
+
+        <p className={styles.single}>
+          <span className={styles.singleIcon} aria-hidden="true">
+            <Wrench size={20} />
+          </span>
+          <span>
+            <strong>Estamos listos para el trabajo que necesites.</strong> Desde un
+            arreglo pequeño hasta una mejora completa, nos encargamos de que quede
+            bien hecho.
+          </span>
+        </p>
 
         <div className={styles.grid}>
           {services.map(({ icon: Icon, title, desc }) => (

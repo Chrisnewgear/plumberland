@@ -4,18 +4,18 @@ import styles from './Projects.module.scss'
 const projectGroups = [
   {
     icon: FolderOpen,
-    title: 'Portafolio por servicio',
-    desc: 'Los trabajos se organizan por área para reemplazar después cada placeholder con contenido real.',
+    title: 'Ordenado por servicio',
+    desc: 'Encuentra rápido el tipo de trabajo que necesitas, sin revolver entre todo.',
   },
   {
     icon: Video,
-    title: 'Videos por área',
-    desc: 'Cada servicio incluye espacios Video_1 y Video_2 para mostrar procesos o resultados reales.',
+    title: 'Videos de cada área',
+    desc: 'Mira el proceso y el resultado real, no solo una foto de catálogo.',
   },
   {
     icon: Camera,
-    title: 'Fotos por área',
-    desc: 'Cada servicio incluye espacios Foto_1 y Foto_2 para documentar trabajos realizados.',
+    title: 'Fotos de trabajos terminados',
+    desc: 'Comprueba el acabado con ejemplos reales antes de contactar.',
   },
 ]
 
@@ -26,11 +26,11 @@ export default function Projects() {
         <header className={styles.head}>
           <div>
             <span className={styles.kicker}>Trabajos realizados</span>
-            <h2>Portafolio personal organizado por áreas de servicio</h2>
+            <h2>Mira trabajos reales antes de decidir</h2>
             <p>
-              Esta sección está preparada para mostrar trabajos reales del
-              trabajador independiente, separados por carpintería, fontanería,
-              pintura, electricidad y demás servicios del hogar.
+              Antes de contactar, revisa fotos y videos de trabajos terminados,
+              separados por carpintería, fontanería, pintura, electricidad y cada
+              servicio del hogar.
             </p>
           </div>
           <a className={styles.gallery} href="#work-areas">

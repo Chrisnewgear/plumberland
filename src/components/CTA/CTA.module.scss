@@ -28,7 +28,7 @@
 .topIcon {
   display: grid;
   place-items: center;
-  color: $color-secondary;
+  color: $color-secondary-ink;
 }
 
 .card h2 {
@@ -72,7 +72,25 @@
     color: $color-ink;
     font: inherit;
     padding: $space-3 $space-4;
-    outline: 0;
+    transition:
+      border-color 0.2s $ease-out,
+      box-shadow 0.2s $ease-out,
+      background 0.2s $ease-out;
+
+    &::placeholder {
+      color: $color-muted;
+    }
+
+    &:hover {
+      border-color: $color-border-strong;
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: $color-primary;
+      background: $color-surface;
+      box-shadow: 0 0 0 3px rgba(18, 54, 95, 0.16);
+    }
   }
 
   textarea {
@@ -87,6 +105,43 @@
 
 .full {
   grid-column: 1 / -1;
+}
+
+.errorMsg {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  width: 100%;
+  max-width: 520px;
+  padding: $space-8 $space-6;
+  border-radius: $radius-lg;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0;
+    color: #047857;
+    line-height: 1.6;
+  }
+
+  .secondary {
+    margin-top: $space-2;
+  }
 }
 
 .contactOptions {
@@ -108,7 +163,7 @@
   padding: $space-4 $space-8;
   border-radius: $radius-md;
   cursor: pointer;
-  transition: all 0.2s ease;
+  @include pressable;
 
   @include respond-below($bp-sm) {
     width: 100%;
@@ -116,17 +171,17 @@
 }
 
 .primary {
-  background: $color-secondary;
+  background: $color-secondary-dark; // AA: white text 4.52:1
   color: #fff;
   box-shadow: 0 6px 18px rgba($color-secondary, 0.35);
 
   &:hover {
-    background: $color-secondary-dark;
-    transform: translateY(-2px);
+    background: $color-secondary-ink;
   }
 
-  &:active {
-    transform: translateY(0);
+  &:disabled {
+    opacity: 0.65;
+    cursor: progress;
   }
 }
 
@@ -136,7 +191,6 @@
 
   &:hover {
     background: #dbeafe;
-    transform: translateY(-2px);
   }
 }
 

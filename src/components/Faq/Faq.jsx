@@ -4,20 +4,24 @@ import styles from './Faq.module.scss'
 
 const faqs = [
   {
-    q: '¿Esta página pertenece a una empresa?',
-    a: 'No. La página está enfocada en un único trabajador independiente de servicios para el hogar.',
+    q: '¿Qué tipo de trabajos hacen?',
+    a: 'Reparaciones, mantenimiento, instalaciones y mejoras en distintas áreas del hogar: carpintería, fontanería, pintura, electricidad, albañilería y más.',
   },
   {
-    q: '¿Los videos y fotos ya son trabajos reales?',
-    a: 'No necesariamente. Cuando no existan archivos reales, se muestran placeholders identificados como Video_1, Video_2, Foto_1 y Foto_2 por cada área.',
+    q: '¿Atienden arreglos pequeños o solo proyectos grandes?',
+    a: 'Los dos. Estamos listos tanto para un arreglo puntual como para una mejora completa de tu hogar.',
   },
   {
-    q: '¿Qué información debo enviar en la solicitud?',
-    a: 'Nombre, teléfono, correo, servicio requerido y una descripción general del problema o mejora del hogar.',
+    q: '¿Las fotos y los videos son trabajos reales?',
+    a: 'Sí. Algunos espacios todavía están reservados para el material; a medida que se publican, verás fotos y videos reales de trabajos terminados por cada área.',
   },
   {
-    q: '¿Se inventan precios, comentarios o datos de experiencia?',
-    a: 'No. La página usa textos generales y placeholders cuando falta información real.',
+    q: '¿Qué datos necesito para pedir presupuesto?',
+    a: 'Tu nombre, teléfono, correo, el servicio que necesitas y una breve descripción del problema o la mejora que buscas. Con eso basta para empezar.',
+  },
+  {
+    q: '¿Por qué no veo precios en la página?',
+    a: 'Porque cada trabajo es distinto. El precio se acuerda contigo según lo que necesites, y consultar no cuesta nada ni te compromete.',
   },
 ]
 
@@ -29,7 +33,7 @@ export default function Faq() {
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
           <h2>Preguntas frecuentes</h2>
-          <p>Información general sobre la página personal de servicios del hogar.</p>
+          <p>Las dudas más comunes antes de pedir tu presupuesto.</p>
         </header>
 
         <div className={styles.list}>

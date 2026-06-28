@@ -1,15 +1,15 @@
 import styles from './Stats.module.scss'
 
 const qualities = [
-  { value: 'Directo', label: 'comunicación con el trabajador' },
-  { value: 'Claro', label: 'alcance del servicio antes de iniciar' },
-  { value: 'Ordenado', label: 'trabajos por área con fotos y videos' },
-  { value: 'Responsable', label: 'cuidado del espacio y seguimiento' },
+  { value: 'Directo', label: 'comunicación cercana y directa contigo' },
+  { value: 'Claro', label: 'conoces el alcance antes de empezar' },
+  { value: 'Ordenado', label: 'ves fotos y videos reales por área' },
+  { value: 'Responsable', label: 'cuida tu espacio y te da seguimiento' },
 ]
 
 export default function Stats() {
   return (
-    <section className={styles.stats} aria-label="Compromisos de trabajo">
+    <section className={styles.stats} aria-label="Lo que puedes esperar">
       <div className={styles.inner}>
         {qualities.map((item) => (
           <div key={item.value} className={styles.item}>

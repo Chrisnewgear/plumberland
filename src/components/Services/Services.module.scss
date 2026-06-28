@@ -11,15 +11,49 @@
   text-align: center;
   max-width: 640px;
   margin-inline: auto;
-  margin-bottom: $space-16;
+  margin-bottom: $space-8;
   display: flex;
   flex-direction: column;
   gap: $space-4;
   align-items: center;
 }
 
+// Single-worker anchor: makes explicit that the grid below is one person's
+// skill set, not a roster of bookable providers.
+.single {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  max-width: 720px;
+  margin: 0 auto $space-16;
+  padding: $space-5 $space-6;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  box-shadow: $shadow-sm;
+  color: $color-tertiary;
+  font-size: 1rem;
+  line-height: 1.55;
+
+  strong {
+    color: $color-ink;
+    font-weight: 800;
+  }
+}
+
+.singleIcon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-pill;
+  background: $color-primary;
+  color: #fff;
+}
+
 .kicker {
-  color: $color-secondary;
+  color: $color-secondary-ink;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -61,11 +95,12 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   background: $color-surface;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  @include card-interactive;
+  @include reveal-stagger(12, 0.05s);
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-md;
+  &:hover .icon {
+    background: $color-secondary;
+    color: #fff;
   }
 
   h3 {
@@ -89,6 +124,9 @@
   border-radius: $radius-md;
   background: #eef1fb;
   color: $color-primary;
+  transition:
+    background 0.2s $ease-out,
+    color 0.2s $ease-out;
 }
 
 .more {
@@ -96,11 +134,11 @@
   display: inline-flex;
   align-items: center;
   gap: $space-2;
-  color: $color-secondary;
+  color: $color-secondary-ink;
   font-weight: 600;
   font-size: 0.95rem;
 
-  svg { transition: transform 0.2s ease; }
+  svg { transition: transform 0.2s $ease-out; }
 
   &:hover svg { transform: translateX(4px); }
 }

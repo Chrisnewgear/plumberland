@@ -35,11 +35,11 @@ export default function WorkerProfile() {
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
           <span className={styles.kicker}>Áreas de trabajo</span>
-          <h2>Trabajos realizados por área</h2>
+          <h2>Trabajos terminados, área por área</h2>
           <p>
-            Cada bloque está preparado para insertar videos y fotos reales del
-            trabajador independiente. Por ahora se mantienen placeholders claros
-            para reemplazarlos manualmente.
+            Abre cada área y mira los videos y las fotos de los trabajos
+            terminados. Los espacios marcados se irán completando con material
+            real de cada servicio.
           </p>
         </header>
 

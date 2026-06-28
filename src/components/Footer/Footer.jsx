@@ -7,7 +7,7 @@ const columns = [
     title: 'Página',
     links: [
       { label: 'Inicio', href: '#top' },
-      { label: 'Sobre mí', href: '#about' },
+      { label: 'Cómo trabajamos', href: '#about' },
       { label: 'Servicios', href: '#services' },
       { label: 'Contacto', href: '#contact' },
     ],
@@ -41,7 +41,7 @@ export default function Footer() {
             <BrandMark size={26} />
             Servicios del Hogar
           </a>
-          <p>Página personal de un trabajador independiente para reparaciones, mantenimiento e instalaciones del hogar.</p>
+          <p>Servicios de confianza para las reparaciones, el mantenimiento y las mejoras de tu hogar.</p>
         </div>
 
         <div className={styles.cols}>
@@ -62,7 +62,7 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <span>© {new Date().getFullYear()} Servicios del Hogar. Trabajador independiente.</span>
+          <span>© {new Date().getFullYear()} Servicios del Hogar. Reparaciones y mejoras del hogar.</span>
           <a className={styles.share} href="#top" aria-label="Volver al inicio">
             <Share2 size={18} />
           </a>
