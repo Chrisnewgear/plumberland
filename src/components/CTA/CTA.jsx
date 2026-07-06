@@ -3,14 +3,17 @@ import emailjs from "@emailjs/browser";
 import { CheckCircle2, Mail, MessageCircle, Phone, Send } from "lucide-react";
 import styles from "./CTA.module.scss";
 
-// Configura EmailJS para recibir los mensajes en tu Gmail:
-// 1. Crea una cuenta en https://www.emailjs.com y conecta tu Gmail
-//    (Email Services → Add New Service → Gmail).
-// 2. Crea una plantilla (Email Templates) usando las variables del formulario:
-//    {{name}}, {{phone}}, {{email}}, {{service}}, {{description}}.
-// 3. Copia los tres identificadores aquí abajo (Account → API Keys para la Public Key).
+// Configura EmailJS para enviar DOS correos por cada envío del formulario:
+//   1. Aviso a TU inbox con los datos que escribió el cliente.
+//   2. Auto-respuesta al correo que el cliente puso en el formulario.
+// Variables disponibles: {{name}}, {{phone}}, {{email}}, {{service}}, {{description}}.
+// IDs en el dashboard: Service (Email Services), Template (Email Templates),
+// Public Key (Account → API Keys).
 const EMAILJS_SERVICE_ID = "service_y2l8m8d";
-const EMAILJS_TEMPLATE_ID = "template_xkndoap";
+// Plantilla "Contact Us": correo que llega a TU inbox con los datos del formulario.
+const EMAILJS_TEMPLATE_OWNER = "template_7h32mpx";
+// Plantilla "Auto-Reply": auto-respuesta al correo que escribió el cliente.
+const EMAILJS_TEMPLATE_AUTOREPLY = "template_xkndoap";
 const EMAILJS_PUBLIC_KEY = "eEJgBXI40bcF3gLqO";
 
 const contactOptions = [
@@ -32,9 +35,17 @@ export default function CTA() {
     setStatus("sending");
 
     try {
+      // 1) Aviso a tu inbox con los datos del formulario.
       await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        EMAILJS_TEMPLATE_OWNER,
+        formRef.current,
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      // 2) Auto-respuesta al correo que escribió el cliente.
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_AUTOREPLY,
         formRef.current,
         { publicKey: EMAILJS_PUBLIC_KEY },
       );
