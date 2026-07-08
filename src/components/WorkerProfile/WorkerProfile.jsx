@@ -1,20 +1,6 @@
+import { useTranslation } from 'react-i18next'
 import { Image, PlaySquare } from 'lucide-react'
 import styles from './WorkerProfile.module.scss'
-
-const areas = [
-  'Carpintería',
-  'Fontanería',
-  'Pintura',
-  'Electricidad',
-  'Albañilería',
-  'Limpieza',
-  'Jardinería',
-  'Cerrajería',
-  'Aire acondicionado',
-  'Vidriería',
-  'Tapicería',
-  'Remodelaciones',
-]
 
 function PlaceholderCard({ type, label }) {
   const Icon = type === 'video' ? PlaySquare : Image
@@ -30,17 +16,16 @@ function PlaceholderCard({ type, label }) {
 }
 
 export default function WorkerProfile() {
+  const { t } = useTranslation()
+  const areas = t('serviceNames', { returnObjects: true })
+
   return (
     <section className={styles.section} id="work-areas">
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
-          <span className={styles.kicker}>Áreas de trabajo</span>
-          <h2>Trabajos terminados, área por área</h2>
-          <p>
-            Abre cada área y mira los videos y las fotos de los trabajos
-            terminados. Los espacios marcados se irán completando con material
-            real de cada servicio.
-          </p>
+          <span className={styles.kicker}>{t('workAreas.kicker')}</span>
+          <h2>{t('workAreas.title')}</h2>
+          <p>{t('workAreas.intro')}</p>
         </header>
 
         <div className={styles.areas}>
@@ -48,23 +33,23 @@ export default function WorkerProfile() {
             <article key={area} className={styles.areaBlock}>
               <header className={styles.areaHead}>
                 <h3>{area}</h3>
-                <a href="#contact">Consultar sobre {area}</a>
+                <a href="#contact">{t('workAreas.consult', { area })}</a>
               </header>
 
               <div className={styles.mediaGroup}>
                 <section>
-                  <h4>Videos del área</h4>
+                  <h4>{t('workAreas.videosTitle')}</h4>
                   <div className={styles.mediaGrid}>
-                    <PlaceholderCard type="video" label={`Información Video_1 ${area}`} />
-                    <PlaceholderCard type="video" label={`Información Video_2 ${area}`} />
+                    <PlaceholderCard type="video" label={t('workAreas.videoLabel', { n: 1, area })} />
+                    <PlaceholderCard type="video" label={t('workAreas.videoLabel', { n: 2, area })} />
                   </div>
                 </section>
 
                 <section>
-                  <h4>Fotos del área</h4>
+                  <h4>{t('workAreas.photosTitle')}</h4>
                   <div className={styles.mediaGrid}>
-                    <PlaceholderCard type="photo" label={`Información Foto_1 ${area}`} />
-                    <PlaceholderCard type="photo" label={`Información Foto_2 ${area}`} />
+                    <PlaceholderCard type="photo" label={t('workAreas.photoLabel', { n: 1, area })} />
+                    <PlaceholderCard type="photo" label={t('workAreas.photoLabel', { n: 2, area })} />
                   </div>
                 </section>
               </div>

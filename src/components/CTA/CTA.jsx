@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import { CheckCircle2, Mail, MessageCircle, Phone, Send } from "lucide-react";
 import styles from "./CTA.module.scss";
@@ -16,19 +17,39 @@ const EMAILJS_TEMPLATE_OWNER = "template_7h32mpx";
 const EMAILJS_TEMPLATE_AUTOREPLY = "template_xkndoap";
 const EMAILJS_PUBLIC_KEY = "eEJgBXI40bcF3gLqO";
 
-const contactOptions = [
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    href: "https://wa.me/19736518567?text=Hola%2C%20quiero%20pedir%20un%20presupuesto",
-  },
-  { icon: Phone, label: "Llamada", href: "tel:+19736518567" },
-  { icon: Mail, label: "Correo", href: "mailto:papichiloco21@gmail.com" },
+// The submitted <select> value stays in canonical Spanish regardless of UI
+// language, so EmailJS always receives a consistent `service` field. Only the
+// visible option label is localized (via serviceNames, aligned by index).
+const CANONICAL_SERVICES = [
+  "Carpintería",
+  "Fontanería",
+  "Pintura",
+  "Electricidad",
+  "Albañilería",
+  "Limpieza",
+  "Jardinería",
+  "Cerrajería",
+  "Aire acondicionado",
+  "Vidriería",
+  "Tapicería",
+  "Remodelaciones",
 ];
 
 export default function CTA() {
+  const { t } = useTranslation();
   const formRef = useRef(null);
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
+  const serviceNames = t("serviceNames", { returnObjects: true });
+  const contactOptions = [
+    {
+      icon: MessageCircle,
+      label: t("cta.contactWhatsapp"),
+      href: "https://wa.me/19736518567?text=Hola%2C%20quiero%20pedir%20un%20presupuesto",
+    },
+    { icon: Phone, label: t("cta.contactCall"), href: "tel:+19736518567" },
+    { icon: Mail, label: t("cta.contactEmail"), href: "mailto:papichiloco21@gmail.com" },
+  ];
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -63,83 +84,70 @@ export default function CTA() {
           <span className={styles.topIcon} aria-hidden="true">
             <Send size={28} />
           </span>
-          <h2>Pide tu presupuesto, sin compromiso</h2>
-          <p>
-            Dinos qué servicio necesitas y describe el problema o la mejora. Te
-            respondemos para coordinar la visita por WhatsApp, llamada o correo.
-          </p>
+          <h2>{t("cta.title")}</h2>
+          <p>{t("cta.intro")}</p>
 
           {status === "success" ? (
             <div className={styles.success} role="status">
               <CheckCircle2 size={40} />
-              <h3>¡Mensaje enviado!</h3>
-              <p>
-                Gracias por contactarnos. Te responderemos lo antes posible para
-                coordinar la visita.
-              </p>
+              <h3>{t("cta.successTitle")}</h3>
+              <p>{t("cta.successBody")}</p>
               <button
                 className={styles.secondary}
                 type="button"
                 onClick={() => setStatus("idle")}
               >
-                Enviar otra solicitud
+                {t("cta.reset")}
               </button>
             </div>
           ) : (
             <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
               <label>
-                Nombre
+                {t("cta.labelName")}
                 <input
                   type="text"
                   name="name"
-                  placeholder="Tu nombre"
+                  placeholder={t("cta.phName")}
                   required
                 />
               </label>
               <label>
-                Teléfono
+                {t("cta.labelPhone")}
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Tu teléfono"
+                  placeholder={t("cta.phPhone")}
                   required
                 />
               </label>
               <label>
-                Correo
+                {t("cta.labelEmail")}
                 <input
                   type="email"
                   name="email"
-                  placeholder="Tu correo"
+                  placeholder={t("cta.phEmail")}
                   required
                 />
               </label>
               <label>
-                ¿Qué servicio necesitas?
+                {t("cta.labelService")}
                 <select name="service" defaultValue="" required>
                   <option value="" disabled>
-                    Selecciona un servicio
+                    {t("cta.servicePrompt")}
                   </option>
-                  <option>Carpintería</option>
-                  <option>Fontanería</option>
-                  <option>Pintura</option>
-                  <option>Electricidad</option>
-                  <option>Albañilería</option>
-                  <option>Limpieza</option>
-                  <option>Jardinería</option>
-                  <option>Cerrajería</option>
-                  <option>Aire acondicionado</option>
-                  <option>Vidriería</option>
-                  <option>Tapicería</option>
-                  <option>Remodelaciones</option>
+                  {CANONICAL_SERVICES.map((value, i) => (
+                    <option key={value} value={value}>
+                      {serviceNames[i]}
+                    </option>
+                  ))}
                 </select>
               </label>
               <label className={styles.full}>
-                Cuéntale el problema o la mejora
+                {t("cta.labelDescription")}
                 <textarea
                   name="description"
                   rows="4"
-                  placeholder="Describe brevemente lo que necesitas"
+                  placeholder={t("cta.phDescription")}
                   required
                 />
               </label>
@@ -150,13 +158,12 @@ export default function CTA() {
                 disabled={status === "sending"}
               >
                 <Send size={18} />
-                {status === "sending" ? "Enviando…" : "Pedir presupuesto"}
+                {status === "sending" ? t("cta.sending") : t("cta.submit")}
               </button>
 
               {status === "error" && (
                 <p className={styles.errorMsg} role="alert">
-                  No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos
-                  por WhatsApp.
+                  {t("cta.error")}
                 </p>
               )}
             </form>
@@ -164,7 +171,7 @@ export default function CTA() {
 
           <div
             className={styles.contactOptions}
-            aria-label="Canales de contacto"
+            aria-label={t("cta.channelsAria")}
           >
             {contactOptions.map(({ icon: Icon, label, href }) => {
               const external = href.startsWith("http");
@@ -182,9 +189,7 @@ export default function CTA() {
             })}
           </div>
 
-          <span className={styles.note}>
-            Consultar no cuesta nada ni te compromete a nada.
-          </span>
+          <span className={styles.note}>{t("cta.note")}</span>
         </div>
       </div>
     </section>

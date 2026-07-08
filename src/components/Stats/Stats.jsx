@@ -1,15 +1,12 @@
+import { useTranslation } from 'react-i18next'
 import styles from './Stats.module.scss'
 
-const qualities = [
-  { value: 'Directo', label: 'comunicación cercana y directa contigo' },
-  { value: 'Claro', label: 'conoces el alcance antes de empezar' },
-  { value: 'Ordenado', label: 'ves fotos y videos reales por área' },
-  { value: 'Responsable', label: 'cuida tu espacio y te da seguimiento' },
-]
-
 export default function Stats() {
+  const { t } = useTranslation()
+  const qualities = t('stats.items', { returnObjects: true })
+
   return (
-    <section className={styles.stats} aria-label="Lo que puedes esperar">
+    <section className={styles.stats} aria-label={t('stats.ariaLabel')}>
       <div className={styles.inner}>
         {qualities.map((item) => (
           <div key={item.value} className={styles.item}>

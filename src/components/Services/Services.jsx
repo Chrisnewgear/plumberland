@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import {
   ArrowRight,
   Building2,
@@ -15,33 +16,25 @@ import {
 } from 'lucide-react'
 import styles from './Services.module.scss'
 
-const services = [
-  { icon: Hammer, title: 'Carpintería', desc: 'Muebles, puertas, repisas, ajustes y trabajos generales en madera.' },
-  { icon: Droplets, title: 'Fontanería', desc: 'Reparaciones, instalaciones, fugas, griferías y mantenimiento de tuberías.' },
-  { icon: PaintRoller, title: 'Pintura', desc: 'Pintura interior, exterior, retoques, preparación de superficies y acabados.' },
-  { icon: Zap, title: 'Electricidad', desc: 'Instalaciones, revisiones, luminarias, tomacorrientes y reparaciones básicas.' },
-  { icon: Building2, title: 'Albañilería', desc: 'Paredes, pisos, enlucidos, reparaciones, cerámica y obra menor.' },
-  { icon: Sparkles, title: 'Limpieza', desc: 'Limpieza profunda, post obra, mantenimiento y preparación de espacios.' },
-  { icon: Leaf, title: 'Jardinería', desc: 'Poda, césped, riego, mantenimiento y recuperación de áreas verdes.' },
-  { icon: KeyRound, title: 'Cerrajería', desc: 'Aperturas, cambios de cerradura, copias, seguridad y emergencias.' },
-  { icon: Snowflake, title: 'Aire acondicionado', desc: 'Instalación, mantenimiento, limpieza y revisión general de equipos.' },
-  { icon: DoorClosed, title: 'Vidriería', desc: 'Cambio de vidrios, mamparas, ventanas, espejos y ajustes de aluminio.' },
-  { icon: Sofa, title: 'Tapicería', desc: 'Reparación, renovación y retapizado de muebles, sillas y cabeceros.' },
-  { icon: Wrench, title: 'Remodelaciones', desc: 'Mejoras generales para baños, cocinas, habitaciones y espacios del hogar.' },
+// Icons pair to the shared service names / descriptions by index.
+const icons = [
+  Hammer, Droplets, PaintRoller, Zap, Building2, Sparkles,
+  Leaf, KeyRound, Snowflake, DoorClosed, Sofa, Wrench,
 ]
 
 export default function Services() {
+  const { t } = useTranslation()
+  const names = t('serviceNames', { returnObjects: true })
+  const descriptions = t('services.descriptions', { returnObjects: true })
+  const services = icons.map((icon, i) => ({ icon, title: names[i], desc: descriptions[i] }))
+
   return (
     <section className={styles.services} id="services">
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
-          <span className={styles.kicker}>Servicios</span>
-          <h2>Todo lo que tu hogar necesita, en un mismo lugar</h2>
-          <p>
-            Carpintería, fontanería, pintura, electricidad y mucho más. Nos
-            ocupamos de cada trabajo para que no tengas que buscar en varios
-            lados.
-          </p>
+          <span className={styles.kicker}>{t('services.kicker')}</span>
+          <h2>{t('services.title')}</h2>
+          <p>{t('services.intro')}</p>
         </header>
 
         <p className={styles.single}>
@@ -49,9 +42,7 @@ export default function Services() {
             <Wrench size={20} />
           </span>
           <span>
-            <strong>Estamos listos para el trabajo que necesites.</strong> Desde un
-            arreglo pequeño hasta una mejora completa, nos encargamos de que quede
-            bien hecho.
+            <strong>{t('services.singleStrong')}</strong> {t('services.singleRest')}
           </span>
         </p>
 
@@ -64,7 +55,7 @@ export default function Services() {
               <h3>{title}</h3>
               <p>{desc}</p>
               <a className={styles.more} href="#work-areas">
-                Ver trabajos del área <ArrowRight size={16} />
+                {t('services.more')} <ArrowRight size={16} />
               </a>
             </article>
           ))}

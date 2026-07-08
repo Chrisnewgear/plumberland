@@ -1,47 +1,36 @@
+import { useTranslation } from 'react-i18next'
 import { Share2 } from 'lucide-react'
 import BrandMark from '../BrandMark/BrandMark.jsx'
 import styles from './Footer.module.scss'
 
-const columns = [
-  {
-    title: 'Página',
-    links: [
-      { label: 'Inicio', href: '#top' },
-      { label: 'Cómo trabajamos', href: '#about' },
-      { label: 'Servicios', href: '#services' },
-      { label: 'Contacto', href: '#contact' },
-    ],
-  },
-  {
-    title: 'Servicios',
-    links: [
-      { label: 'Carpintería', href: '#services' },
-      { label: 'Fontanería', href: '#services' },
-      { label: 'Pintura', href: '#services' },
-      { label: 'Electricidad', href: '#services' },
-    ],
-  },
-  {
-    title: 'Portafolio',
-    links: [
-      { label: 'Trabajos realizados', href: '#projects' },
-      { label: 'Áreas de trabajo', href: '#work-areas' },
-      { label: 'Videos por área', href: '#work-areas' },
-      { label: 'Fotos por área', href: '#work-areas' },
-    ],
-  },
-]
-
 export default function Footer() {
+  const { t } = useTranslation()
+  const serviceNames = t('serviceNames', { returnObjects: true })
+
+  const columns = [
+    {
+      title: t('footer.colPage'),
+      links: t('footer.pageLinks', { returnObjects: true }),
+    },
+    {
+      title: t('footer.colServices'),
+      links: serviceNames.slice(0, 4).map((label) => ({ label, href: '#services' })),
+    },
+    {
+      title: t('footer.colPortfolio'),
+      links: t('footer.portfolioLinks', { returnObjects: true }),
+    },
+  ]
+
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brandCol}>
           <a className={styles.brand} href="#top">
             <BrandMark size={26} />
-            Servicios del Hogar
+            {t('footer.brand')}
           </a>
-          <p>Servicios de confianza para las reparaciones, el mantenimiento y las mejoras de tu hogar.</p>
+          <p>{t('footer.tagline')}</p>
         </div>
 
         <div className={styles.cols}>
@@ -62,8 +51,8 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <span>© {new Date().getFullYear()} Servicios del Hogar. Reparaciones y mejoras del hogar.</span>
-          <a className={styles.share} href="#top" aria-label="Volver al inicio">
+          <span>{t('footer.copyright', { year: new Date().getFullYear() })}</span>
+          <a className={styles.share} href="#top" aria-label={t('footer.backToTop')}>
             <Share2 size={18} />
           </a>
         </div>

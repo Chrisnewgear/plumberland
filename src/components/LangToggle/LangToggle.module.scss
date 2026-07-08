@@ -1,0 +1,53 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-surface;
+
+  button {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    min-width: 38px;
+    padding: $space-1 $space-3;
+    border-radius: $radius-pill;
+    background: transparent;
+    color: $color-body;
+    font-family: $font-sans;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    transition: background 0.2s $ease, color 0.2s $ease;
+
+    &:hover {
+      color: $color-secondary-ink;
+    }
+
+    &.active {
+      background: $color-secondary-dark; // AA: white text
+      color: #fff;
+    }
+
+    &.active:hover {
+      color: #fff;
+    }
+  }
+}
+
+// In the mobile dropdown panel the toggle sits on its own row, a little larger
+// and centered so it reads as a clear control alongside the stacked links.
+.panelToggle {
+  align-self: flex-start;
+  margin-top: $space-2;
+
+  button {
+    min-width: 46px;
+    font-size: 0.95rem;
+    padding: $space-2 $space-4;
+  }
+}
