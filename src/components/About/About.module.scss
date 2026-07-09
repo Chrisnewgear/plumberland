@@ -12,6 +12,7 @@
 
   @include respond-below($bp-lg) {
     grid-template-columns: 1fr;
+    gap: $space-10;
   }
 }
 

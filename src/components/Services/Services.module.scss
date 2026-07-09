@@ -71,8 +71,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $space-6;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $space-5;
 
   @include respond-below($bp-lg) {
     grid-template-columns: repeat(3, 1fr);
@@ -88,55 +88,83 @@
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: $space-6;
+  padding: $space-6 $space-5 $space-5;
   border: 1px solid $color-border;
-  border-radius: $radius-md;
+  border-radius: $radius-lg;
   background: $color-surface;
+  overflow: hidden;
   @include card-interactive;
   @include reveal-stagger(12, 0.05s);
 
-  &:hover .icon {
-    background: $color-secondary;
+  // Top accent bar that wipes in on hover — ties every card to the brand
+  // orange without colouring them all at rest.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, $color-secondary, $color-secondary-dark);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s $ease-out;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+
+  &:hover .icon,
+  &:focus-within .icon {
+    background: linear-gradient(135deg, $color-secondary, $color-secondary-dark);
     color: #fff;
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.28);
   }
 
   h3 {
     margin-block: $space-5 $space-2;
-    font-size: 1.18rem;
+    font-size: 1.1rem;
   }
 
   p {
     color: $color-muted;
     line-height: 1.6;
     margin-bottom: $space-5;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 }
 
 .icon {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-radius: $radius-md;
-  background: #eef1fb;
+  background: linear-gradient(135deg, #eef2fb, #dfe7f6);
   color: $color-primary;
+  box-shadow: inset 0 0 0 1px rgba(18, 54, 95, 0.06);
   transition:
-    background 0.2s $ease-out,
-    color 0.2s $ease-out;
+    background 0.25s $ease,
+    color 0.25s $ease,
+    box-shadow 0.25s $ease;
 }
 
 .more {
   margin-top: auto;
+  width: 100%;
+  padding-top: $space-4;
+  border-top: 1px solid $color-border;
   display: inline-flex;
   align-items: center;
   gap: $space-2;
   color: $color-secondary-ink;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.9rem;
 
   svg { transition: transform 0.2s $ease-out; }
 

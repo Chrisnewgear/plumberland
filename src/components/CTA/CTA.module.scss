@@ -71,7 +71,11 @@
     background: $color-surface-alt;
     color: $color-ink;
     font: inherit;
+    // Keep controls at >=16px: iOS Safari zooms the viewport on focus for any
+    // smaller text, which yanks the layout around mid-typing.
+    font-size: max(1rem, 16px);
     padding: $space-3 $space-4;
+    min-height: 48px;
     transition:
       border-color 0.2s $ease-out,
       box-shadow 0.2s $ease-out,

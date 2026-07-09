@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import { CheckCircle2, Mail, MessageCircle, Phone, Send } from "lucide-react";
 import styles from "./CTA.module.scss";
@@ -19,15 +20,17 @@ const EMAILJS_PUBLIC_KEY = "eEJgBXI40bcF3gLqO";
 const contactOptions = [
   {
     icon: MessageCircle,
-    label: "WhatsApp",
+    labelKey: "cta.whatsapp",
     href: "https://wa.me/19736518567?text=Hola%2C%20quiero%20pedir%20un%20presupuesto",
   },
-  { icon: Phone, label: "Llamada", href: "tel:+19736518567" },
-  { icon: Mail, label: "Correo", href: "mailto:papichiloco21@gmail.com" },
+  { icon: Phone, labelKey: "cta.call", href: "tel:+19736518567" },
+  { icon: Mail, labelKey: "cta.mail", href: "mailto:papichiloco21@gmail.com" },
 ];
 
 export default function CTA() {
+  const { t } = useTranslation();
   const formRef = useRef(null);
+  const serviceOptions = t("cta.services", { returnObjects: true });
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   async function handleSubmit(event) {
@@ -63,83 +66,68 @@ export default function CTA() {
           <span className={styles.topIcon} aria-hidden="true">
             <Send size={28} />
           </span>
-          <h2>Pide tu presupuesto, sin compromiso</h2>
-          <p>
-            Dinos qué servicio necesitas y describe el problema o la mejora. Te
-            respondemos para coordinar la visita por WhatsApp, llamada o correo.
-          </p>
+          <h2>{t("cta.title")}</h2>
+          <p>{t("cta.description")}</p>
 
           {status === "success" ? (
             <div className={styles.success} role="status">
               <CheckCircle2 size={40} />
-              <h3>¡Mensaje enviado!</h3>
-              <p>
-                Gracias por contactarnos. Te responderemos lo antes posible para
-                coordinar la visita.
-              </p>
+              <h3>{t("cta.successTitle")}</h3>
+              <p>{t("cta.successText")}</p>
               <button
                 className={styles.secondary}
                 type="button"
                 onClick={() => setStatus("idle")}
               >
-                Enviar otra solicitud
+                {t("cta.sendAnother")}
               </button>
             </div>
           ) : (
             <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
               <label>
-                Nombre
+                {t("cta.name")}
                 <input
                   type="text"
                   name="name"
-                  placeholder="Tu nombre"
+                  placeholder={t("cta.namePlaceholder")}
                   required
                 />
               </label>
               <label>
-                Teléfono
+                {t("cta.phone")}
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Tu teléfono"
+                  placeholder={t("cta.phonePlaceholder")}
                   required
                 />
               </label>
               <label>
-                Correo
+                {t("cta.email")}
                 <input
                   type="email"
                   name="email"
-                  placeholder="Tu correo"
+                  placeholder={t("cta.emailPlaceholder")}
                   required
                 />
               </label>
               <label>
-                ¿Qué servicio necesitas?
+                {t("cta.serviceLabel")}
                 <select name="service" defaultValue="" required>
                   <option value="" disabled>
-                    Selecciona un servicio
+                    {t("cta.servicePlaceholder")}
                   </option>
-                  <option>Carpintería</option>
-                  <option>Fontanería</option>
-                  <option>Pintura</option>
-                  <option>Electricidad</option>
-                  <option>Albañilería</option>
-                  <option>Limpieza</option>
-                  <option>Jardinería</option>
-                  <option>Cerrajería</option>
-                  <option>Aire acondicionado</option>
-                  <option>Vidriería</option>
-                  <option>Tapicería</option>
-                  <option>Remodelaciones</option>
+                  {serviceOptions.map((service) => (
+                    <option key={service}>{service}</option>
+                  ))}
                 </select>
               </label>
               <label className={styles.full}>
-                Cuéntale el problema o la mejora
+                {t("cta.descriptionLabel")}
                 <textarea
                   name="description"
                   rows="4"
-                  placeholder="Describe brevemente lo que necesitas"
+                  placeholder={t("cta.descriptionPlaceholder")}
                   required
                 />
               </label>
@@ -150,13 +138,12 @@ export default function CTA() {
                 disabled={status === "sending"}
               >
                 <Send size={18} />
-                {status === "sending" ? "Enviando…" : "Pedir presupuesto"}
+                {status === "sending" ? t("cta.submitting") : t("cta.submit")}
               </button>
 
               {status === "error" && (
                 <p className={styles.errorMsg} role="alert">
-                  No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos
-                  por WhatsApp.
+                  {t("cta.error")}
                 </p>
               )}
             </form>
@@ -164,13 +151,14 @@ export default function CTA() {
 
           <div
             className={styles.contactOptions}
-            aria-label="Canales de contacto"
+            aria-label={t("cta.channelsLabel")}
           >
-            {contactOptions.map(({ icon: Icon, label, href }) => {
+            {contactOptions.map(({ icon: Icon, labelKey, href }) => {
               const external = href.startsWith("http");
+              const label = t(labelKey);
               return (
                 <a
-                  key={label}
+                  key={labelKey}
                   className={styles.secondary}
                   href={href}
                   {...(external && { target: "_blank", rel: "noreferrer" })}
@@ -182,9 +170,7 @@ export default function CTA() {
             })}
           </div>
 
-          <span className={styles.note}>
-            Consultar no cuesta nada ni te compromete a nada.
-          </span>
+          <span className={styles.note}>{t("cta.note")}</span>
         </div>
       </div>
     </section>
