@@ -125,13 +125,6 @@ export default function CTA() {
                   <option>Pintura</option>
                   <option>Electricidad</option>
                   <option>Albañilería</option>
-                  <option>Limpieza</option>
-                  <option>Jardinería</option>
-                  <option>Cerrajería</option>
-                  <option>Aire acondicionado</option>
-                  <option>Vidriería</option>
-                  <option>Tapicería</option>
-                  <option>Remodelaciones</option>
                 </select>
               </label>
               <label className={styles.full}>

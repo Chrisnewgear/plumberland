@@ -2,7 +2,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { ArrowRight, CheckCircle2, Images, Mail, ShieldCheck, Wrench } from 'lucide-react'
 import styles from './Hero.module.scss'
 
-const serviceAreas = ['carpintería', 'fontanería', 'pintura', 'electricidad', 'remodelaciones']
+const serviceAreas = ['carpintería', 'fontanería', 'pintura', 'electricidad', 'albañilería']
 const commitments = [
   { title: 'Listos para el trabajo que necesites', note: 'Desde un arreglo pequeño hasta una mejora completa' },
   { title: 'Todos los servicios en un solo lugar', note: 'Reparación, mantenimiento e instalación' },

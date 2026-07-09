@@ -12,6 +12,7 @@
 
   @include respond-below($bp-lg) {
     grid-template-columns: 1fr;
+    gap: $space-10;
   }
 }
 
@@ -19,6 +20,11 @@
   display: flex;
   flex-direction: column;
   gap: $space-6;
+
+  @include respond-above($bp-lg) {
+    position: sticky;
+    top: $space-16;
+  }
 }
 
 .badge {
@@ -45,35 +51,193 @@
   max-width: 520px;
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: $space-5;
+// ---------------------------------------------------------------------------
+// Synced progress readout in the copy column
+// ---------------------------------------------------------------------------
+.progress {
+  margin-top: $space-2;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
 
-  @include respond-below($bp-sm) {
-    grid-template-columns: 1fr;
+.progressHead {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  span {
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-secondary-ink;
+  }
+
+  strong {
+    font-size: 1.05rem;
+    color: $color-ink;
   }
 }
 
-.feature {
-  display: flex;
-  gap: $space-4;
-  padding: $space-6;
-  border: 1px solid $color-border;
-  border-radius: $radius-md;
-  background: $color-surface-alt;
-  @include card-interactive;
-  @include reveal-stagger(6, 0.07s);
+.progressTrack {
+  height: 6px;
+  border-radius: $radius-pill;
+  background: $color-border;
+  overflow: hidden;
+}
 
-  &:hover .featureIcon {
+.progressFill {
+  height: 100%;
+  width: 20%;
+  border-radius: $radius-pill;
+  background: linear-gradient(90deg, $color-secondary, $color-secondary-dark);
+}
+
+// ---------------------------------------------------------------------------
+// Vertical animated stepper
+// ---------------------------------------------------------------------------
+.steps {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  gap: $space-5;
+  align-items: stretch;
+}
+
+.rail {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node {
+  position: relative;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #eef2fb;
+  color: $color-primary;
+  cursor: pointer;
+  transition:
+    background 0.3s $ease,
+    color 0.3s $ease,
+    box-shadow 0.3s $ease;
+
+  .step[data-state='active'] &,
+  .step[data-state='done'] & {
     background: $color-secondary;
+    color: #fff;
+  }
+
+  .step[data-state='active'] & {
+    box-shadow: 0 10px 22px rgba(249, 115, 22, 0.4);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-secondary;
+    outline-offset: 3px;
+  }
+
+  // Pulsing ring on the active node — the moving "you are here" cue.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid $color-secondary;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .step[data-state='active'] &::after {
+      animation: nodePulse 1.8s $ease-out infinite;
+    }
+  }
+}
+
+@keyframes nodePulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+// Connector between one node and the next; fills orange once the step is done.
+.line {
+  position: relative;
+  flex: 1;
+  width: 2px;
+  min-height: $space-6;
+  margin-block: $space-2;
+  background: $color-border;
+  border-radius: $radius-pill;
+  overflow: hidden;
+}
+
+.lineFill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, $color-secondary, $color-secondary-dark);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s $ease-out;
+
+  .step[data-state='done'] & {
+    transform: scaleY(1);
+  }
+}
+
+.body {
+  flex: 1;
+  margin-bottom: $space-5;
+  padding: $space-4 $space-5;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  background: transparent;
+  transition:
+    background 0.3s $ease,
+    border-color 0.3s $ease,
+    box-shadow 0.3s $ease,
+    transform 0.3s $ease;
+
+  .step[data-state='active'] & {
+    background: $color-surface-alt;
+    border-color: $color-border-strong;
+    box-shadow: $shadow-md;
   }
 
   small {
     display: block;
-    color: $color-secondary-ink;
+    color: $color-muted;
     font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.74rem;
     margin-bottom: $space-1;
+    transition: color 0.3s $ease;
+  }
+
+  .step[data-state='active'] & small,
+  .step[data-state='done'] & small {
+    color: $color-secondary-ink;
   }
 
   h3 {
@@ -81,22 +245,11 @@
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: $space-1;
+    color: $color-ink;
   }
 
   p {
     color: $color-muted;
     line-height: 1.6;
   }
-}
-
-.featureIcon {
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: $color-primary;
-  color: #fff;
-  transition: background 0.2s $ease-out;
 }

@@ -1,15 +1,9 @@
 import {
   ArrowRight,
   Building2,
-  DoorClosed,
   Droplets,
   Hammer,
-  KeyRound,
-  Leaf,
   PaintRoller,
-  Snowflake,
-  Sparkles,
-  Sofa,
   Wrench,
   Zap,
 } from 'lucide-react'
@@ -21,13 +15,6 @@ const services = [
   { icon: PaintRoller, title: 'Pintura', desc: 'Pintura interior, exterior, retoques, preparación de superficies y acabados.' },
   { icon: Zap, title: 'Electricidad', desc: 'Instalaciones, revisiones, luminarias, tomacorrientes y reparaciones básicas.' },
   { icon: Building2, title: 'Albañilería', desc: 'Paredes, pisos, enlucidos, reparaciones, cerámica y obra menor.' },
-  { icon: Sparkles, title: 'Limpieza', desc: 'Limpieza profunda, post obra, mantenimiento y preparación de espacios.' },
-  { icon: Leaf, title: 'Jardinería', desc: 'Poda, césped, riego, mantenimiento y recuperación de áreas verdes.' },
-  { icon: KeyRound, title: 'Cerrajería', desc: 'Aperturas, cambios de cerradura, copias, seguridad y emergencias.' },
-  { icon: Snowflake, title: 'Aire acondicionado', desc: 'Instalación, mantenimiento, limpieza y revisión general de equipos.' },
-  { icon: DoorClosed, title: 'Vidriería', desc: 'Cambio de vidrios, mamparas, ventanas, espejos y ajustes de aluminio.' },
-  { icon: Sofa, title: 'Tapicería', desc: 'Reparación, renovación y retapizado de muebles, sillas y cabeceros.' },
-  { icon: Wrench, title: 'Remodelaciones', desc: 'Mejoras generales para baños, cocinas, habitaciones y espacios del hogar.' },
 ]
 
 export default function Services() {
