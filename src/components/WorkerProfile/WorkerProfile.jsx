@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ChevronLeft, ChevronRight, ImageIcon, Play, VideoIcon, X, ZoomIn } from 'lucide-react'
 import styles from './WorkerProfile.module.scss'
 
@@ -24,7 +25,7 @@ const photos = Object.entries(imageMap)
     id: path,
     type: 'photo',
     src,
-    label: `Trabajo terminado ${i + 1}`,
+    n: i + 1,
   }))
 
 const videos = Object.entries(videoMap)
@@ -33,24 +34,35 @@ const videos = Object.entries(videoMap)
     id: path,
     type: 'video',
     src,
-    label: `Video de trabajo ${i + 1}`,
+    n: i + 1,
   }))
 
 // Videos first so motion catches the eye, then the photo grid.
 const media = [...videos, ...photos]
 
-const FILTERS = [
-  { key: 'all', label: 'Todos', count: media.length },
-  { key: 'photo', label: 'Fotos', count: photos.length },
-  { key: 'video', label: 'Videos', count: videos.length },
-]
-
 export default function WorkerProfile() {
+  const { t } = useTranslation()
   const reduceMotion = useReducedMotion()
   const [filter, setFilter] = useState('all')
   const [activeIndex, setActiveIndex] = useState(null)
   const closeRef = useRef(null)
   const lastFocused = useRef(null)
+
+  // Localized label for a media item, resolved at render so it follows the
+  // active language.
+  const labelFor = useCallback(
+    (item) =>
+      item.type === 'video'
+        ? t('gallery.videoLabel', { number: item.n })
+        : t('gallery.photoLabel', { number: item.n }),
+    [t],
+  )
+
+  const filters = [
+    { key: 'all', label: t('gallery.filters.all'), count: media.length },
+    { key: 'photo', label: t('gallery.filters.photo'), count: photos.length },
+    { key: 'video', label: t('gallery.filters.video'), count: videos.length },
+  ]
 
   const items = useMemo(
     () => (filter === 'all' ? media : media.filter((m) => m.type === filter)),
@@ -106,18 +118,14 @@ export default function WorkerProfile() {
     <section className={styles.section} id="work-areas">
       <div className={styles.inner} data-reveal>
         <header className={styles.head}>
-          <span className={styles.kicker}>Trabajos realizados</span>
-          <h2>Galería de trabajos terminados</h2>
-          <p>
-            Fotos y videos reales de trabajos ya realizados. Míralos de cerca
-            antes de contactarnos y hazte una idea del acabado que puedes
-            esperar.
-          </p>
+          <span className={styles.kicker}>{t('gallery.kicker')}</span>
+          <h2>{t('gallery.title')}</h2>
+          <p>{t('gallery.description')}</p>
         </header>
 
         <div className={styles.toolbar}>
-          <div className={styles.filters} role="group" aria-label="Filtrar galería">
-            {FILTERS.map(({ key, label, count }) => (
+          <div className={styles.filters} role="group" aria-label={t('gallery.filterLabel')}>
+            {filters.map(({ key, label, count }) => (
               <button
                 key={key}
                 type="button"
@@ -132,12 +140,12 @@ export default function WorkerProfile() {
             ))}
           </div>
           <a className={styles.contactLink} href="#contact">
-            ¿Buscas algo parecido? Escríbenos
+            {t('gallery.contactLink')}
           </a>
         </div>
 
         {items.length === 0 ? (
-          <p className={styles.empty}>Muy pronto subiremos material de esta categoría.</p>
+          <p className={styles.empty}>{t('gallery.empty')}</p>
         ) : (
           <ul className={styles.grid}>
             {items.map((item, index) => (
@@ -147,13 +155,13 @@ export default function WorkerProfile() {
                   className={styles.tile}
                   data-type={item.type}
                   onClick={() => open(index)}
-                  aria-label={`Abrir ${item.label}`}
+                  aria-label={t('gallery.open', { label: labelFor(item) })}
                 >
                   {item.type === 'photo' ? (
                     <img
                       className={styles.thumb}
                       src={item.src}
-                      alt={item.label}
+                      alt={labelFor(item)}
                       loading="lazy"
                       decoding="async"
                     />
@@ -171,7 +179,7 @@ export default function WorkerProfile() {
 
                   <span className={styles.badge}>
                     {item.type === 'video' ? <VideoIcon size={14} /> : <ImageIcon size={14} />}
-                    {item.type === 'video' ? 'Video' : 'Foto'}
+                    {item.type === 'video' ? t('gallery.badgeVideo') : t('gallery.badgePhoto')}
                   </span>
 
                   <span className={styles.overlay} aria-hidden="true">
@@ -192,7 +200,7 @@ export default function WorkerProfile() {
             className={styles.lightbox}
             role="dialog"
             aria-modal="true"
-            aria-label={active.label}
+            aria-label={labelFor(active)}
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0 }}
@@ -204,7 +212,7 @@ export default function WorkerProfile() {
               type="button"
               className={styles.close}
               onClick={close}
-              aria-label="Cerrar"
+              aria-label={t('gallery.close')}
             >
               <X size={22} />
             </button>
@@ -217,7 +225,7 @@ export default function WorkerProfile() {
                   e.stopPropagation()
                   step(-1)
                 }}
-                aria-label="Anterior"
+                aria-label={t('gallery.prev')}
               >
                 <ChevronLeft size={26} />
               </button>
@@ -233,7 +241,7 @@ export default function WorkerProfile() {
               key={active.id}
             >
               {active.type === 'photo' ? (
-                <img className={styles.stageMedia} src={active.src} alt={active.label} />
+                <img className={styles.stageMedia} src={active.src} alt={labelFor(active)} />
               ) : (
                 <video
                   className={styles.stageMedia}
@@ -244,7 +252,7 @@ export default function WorkerProfile() {
                 />
               )}
               <p className={styles.caption}>
-                {active.label}
+                {labelFor(active)}
                 <span>
                   {activeIndex + 1} / {items.length}
                 </span>
@@ -259,7 +267,7 @@ export default function WorkerProfile() {
                   e.stopPropagation()
                   step(1)
                 }}
-                aria-label="Siguiente"
+                aria-label={t('gallery.next')}
               >
                 <ChevronRight size={26} />
               </button>

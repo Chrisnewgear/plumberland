@@ -37,6 +37,12 @@
   @include respond-below($bp-lg) {
     grid-template-columns: minmax(0, 1fr);
     min-height: auto;
+    padding-block: $space-16;
+    gap: $space-8;
+  }
+
+  @include respond-below($bp-sm) {
+    padding-block: $space-12;
   }
 }
 
@@ -150,7 +156,9 @@
 
   a {
     display: inline-flex;
-    padding: $space-2 $space-3;
+    align-items: center;
+    min-height: 44px; // full tap target — these are quick-nav jumps to #services
+    padding: $space-2 $space-4;
     border-radius: $radius-pill;
     background: #eef4ff;
     color: $color-primary;

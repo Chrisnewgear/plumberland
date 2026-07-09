@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "brand": "Home Services",
+    "principal": "Main",
+    "links": {
+      "home": "Home",
+      "about": "How we work",
+      "services": "Services",
+      "projects": "Work",
+      "areas": "Areas",
+      "contact": "Contact"
+    },
+    "cta": "Get your quote",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "switchToEnglish": "Switch to English",
+    "switchToSpanish": "Switch to Spanish"
+  },
+  "hero": {
+    "badge": "Direct, personal care for your home",
+    "title": "Ready to repair, maintain and improve your home",
+    "description": "Carpentry, plumbing, painting, electrical work and much more. We handle repairs, maintenance and installation, from start to finish.",
+    "ctaQuote": "Get your quote",
+    "ctaServices": "See services",
+    "ctaProjects": "See our work",
+    "searchLabel": "Ready for all these trades",
+    "areasLabel": "Trades we cover",
+    "serviceAreas": ["carpentry", "plumbing", "painting", "electrical", "masonry"],
+    "proofLabel": "What we offer",
+    "proofTitle": "Ready for your whole home",
+    "proofSubtitle": "Direct, personal care on every service",
+    "commitments": [
+      { "title": "Ready for whatever job you need", "note": "From a small fix to a full upgrade" },
+      { "title": "Every service in one place", "note": "Repair, maintenance and installation" },
+      { "title": "See the work before you decide", "note": "Real photos and videos for each area" }
+    ]
+  },
+  "about": {
+    "kicker": "How we work",
+    "title": "Ready for your home's repairs and improvements",
+    "p1": "Repair, maintenance and installation for your home, with direct, personal care and commitment on every job, big or small.",
+    "p2": "Here you can see the areas we work in, browse photos and videos of real jobs, and request your quote in just a few steps.",
+    "foundationTitle": "How we work",
+    "imgOneAlt": "Tools ready for home services",
+    "imgTwoAlt": "Materials and tools for repairs and improvements",
+    "qualities": [
+      { "title": "Reliability", "desc": "Careful attention from the initial review through to delivering the finished work." },
+      { "title": "Punctuality", "desc": "Well-organized scheduling and clear communication to coordinate every visit." },
+      { "title": "Versatile work", "desc": "Able to help across different areas of home repair, maintenance and improvement." }
+    ]
+  },
+  "stats": {
+    "label": "What you can expect",
+    "items": [
+      { "value": "Direct", "label": "close, direct communication with you" },
+      { "value": "Clear", "label": "you know the scope before we start" },
+      { "value": "Organized", "label": "you see real photos and videos by area" },
+      { "value": "Reliable", "label": "we care for your space and follow up" }
+    ]
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "Everything your home needs, all in one place",
+    "description": "Carpentry, plumbing, painting, electrical work and much more. We take care of every job so you don't have to look in several places.",
+    "singleStrong": "We're ready for whatever job you need.",
+    "singleRest": "From a small fix to a full upgrade, we make sure it's done right.",
+    "more": "See work from this area",
+    "items": [
+      { "title": "Carpentry", "desc": "Furniture, doors, shelving, adjustments and general woodwork." },
+      { "title": "Plumbing", "desc": "Repairs, installations, leaks, faucets and pipe maintenance." },
+      { "title": "Painting", "desc": "Interior and exterior painting, touch-ups, surface prep and finishes." },
+      { "title": "Electrical", "desc": "Installations, inspections, light fixtures, outlets and basic repairs." },
+      { "title": "Masonry", "desc": "Walls, floors, plastering, repairs, tiling and minor construction." }
+    ]
+  },
+  "guarantee": {
+    "badge": "How it works",
+    "title": "Getting help for your home is this simple",
+    "description": "No sign-ups, no hassle. See how we work, review the work we've done, and when you're ready, send your request.",
+    "stepCounter": "Step {{current}} of {{total}}",
+    "stepLabel": "Step {{number}}",
+    "viewStep": "View step {{number}}: {{title}}",
+    "steps": [
+      { "title": "See how we work", "desc": "Get to know how we work and what you can expect, before making any decision." },
+      { "title": "See what we can do", "desc": "From carpentry to electrical work, browse all the services for your home." },
+      { "title": "Check the work", "desc": "Go into each area and see the results with photos and videos of real jobs." },
+      { "title": "Tell us what you need", "desc": "Describe the problem or the improvement you're after and leave your contact details." },
+      { "title": "Get your quote", "desc": "Send your request and we'll coordinate the visit together to start the work." }
+    ]
+  },
+  "gallery": {
+    "kicker": "Completed work",
+    "title": "Gallery of finished jobs",
+    "description": "Real photos and videos of jobs we've already completed. Take a close look before reaching out and get a sense of the finish you can expect.",
+    "filterLabel": "Filter gallery",
+    "filters": { "all": "All", "photo": "Photos", "video": "Videos" },
+    "contactLink": "Looking for something similar? Write to us",
+    "empty": "We'll upload material for this category very soon.",
+    "photoLabel": "Finished job {{number}}",
+    "videoLabel": "Job video {{number}}",
+    "badgePhoto": "Photo",
+    "badgeVideo": "Video",
+    "open": "Open {{label}}",
+    "close": "Close",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "The most common questions before requesting your quote.",
+    "items": [
+      { "q": "What kind of work do you do?", "a": "Repairs, maintenance, installations and improvements across different areas of the home: carpentry, plumbing, painting, electrical work, masonry and more." },
+      { "q": "Do you handle small fixes or only big projects?", "a": "Both. We're ready for a quick fix as well as a full home improvement." },
+      { "q": "Are the photos and videos real jobs?", "a": "Yes. Some spots are still reserved for material; as they're published, you'll see real photos and videos of finished jobs for each area." },
+      { "q": "What details do I need to request a quote?", "a": "Your name, phone, email, the service you need and a short description of the problem or improvement you're after. That's all it takes to get started." },
+      { "q": "Why don't I see prices on the page?", "a": "Because every job is different. The price is agreed with you based on what you need, and asking costs nothing and commits you to nothing." }
+    ]
+  },
+  "cta": {
+    "title": "Request your quote, no obligation",
+    "description": "Tell us what service you need and describe the problem or the improvement. We'll get back to you to coordinate the visit by WhatsApp, call or email.",
+    "successTitle": "Message sent!",
+    "successText": "Thanks for reaching out. We'll get back to you as soon as possible to coordinate the visit.",
+    "sendAnother": "Send another request",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone",
+    "email": "Email",
+    "emailPlaceholder": "Your email",
+    "serviceLabel": "What service do you need?",
+    "servicePlaceholder": "Select a service",
+    "services": ["Carpentry", "Plumbing", "Painting", "Electrical", "Masonry"],
+    "descriptionLabel": "Tell us the problem or the improvement",
+    "descriptionPlaceholder": "Briefly describe what you need",
+    "submit": "Request quote",
+    "submitting": "Sending…",
+    "error": "The message couldn't be sent. Try again or write to us on WhatsApp.",
+    "channelsLabel": "Contact channels",
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "mail": "Email",
+    "note": "Asking costs nothing and commits you to nothing."
+  },
+  "whatsappFab": {
+    "aria": "Message us on WhatsApp",
+    "label": "Chat with us"
+  },
+  "projects": {
+    "kicker": "Completed work",
+    "title": "See real jobs before you decide",
+    "description": "Before reaching out, browse photos and videos of finished jobs, sorted by carpentry, plumbing, painting, electrical work and every home service.",
+    "gallery": "See work areas",
+    "groups": [
+      { "title": "Sorted by service", "desc": "Quickly find the type of work you need, without digging through everything." },
+      { "title": "Videos for each area", "desc": "See the process and the real result, not just a catalog photo." },
+      { "title": "Photos of finished jobs", "desc": "Check the finish with real examples before getting in touch." }
+    ]
+  },
+  "footer": {
+    "brand": "Home Services",
+    "tagline": "Trusted services for your home's repairs, maintenance and improvements.",
+    "backToTop": "Back to top",
+    "copyright": "© {{year}} Home Services. Home repairs and improvements.",
+    "columns": {
+      "page": {
+        "title": "Page",
+        "links": { "home": "Home", "about": "How we work", "services": "Services", "contact": "Contact" }
+      },
+      "services": {
+        "title": "Services",
+        "links": { "carpentry": "Carpentry", "plumbing": "Plumbing", "painting": "Painting", "electricity": "Electrical" }
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "links": { "done": "Completed work", "areas": "Work areas", "videos": "Videos by area", "photos": "Photos by area" }
+      }
+    }
+  }
+}

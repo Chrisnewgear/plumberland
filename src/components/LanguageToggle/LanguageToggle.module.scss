@@ -1,0 +1,75 @@
+// Segmented ES / EN switch. A sliding thumb sits under the active language and
+// the two labels sit on top; the active label reads on the thumb, the inactive
+// one stays muted on the track.
+.toggle {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  flex-shrink: 0;
+  width: 74px;
+  height: 38px;
+  padding: 3px;
+  border: 1px solid $color-border;
+  border-radius: $radius-pill;
+  background: $color-surface-alt;
+  cursor: pointer;
+  transition: border-color 0.2s $ease, box-shadow 0.2s $ease;
+
+  // Touch devices need a 44px target; the pill can stay slim on mouse-driven
+  // screens where pointer precision is higher.
+  @media (pointer: coarse) {
+    height: 44px;
+    width: 80px;
+  }
+
+  &:hover {
+    border-color: $color-border-strong;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $color-secondary-ink;
+    box-shadow: 0 0 0 3px rgba($color-secondary, 0.28);
+  }
+}
+
+.option {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: $color-muted;
+  transition: color 0.2s $ease;
+  user-select: none;
+
+  &[data-active='true'] {
+    color: #fff;
+  }
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 0;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  border-radius: $radius-pill;
+  background: $color-secondary-dark; // AA: white text 4.52:1
+  box-shadow: 0 2px 6px rgba($color-secondary, 0.35);
+  transition: transform 0.24s $ease-out;
+
+  &[data-en='true'] {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb {
+    transition: none;
+  }
+}

@@ -10,6 +10,7 @@ import About from "./components/About/About.jsx";
 import Faq from "./components/Faq/Faq.jsx";
 import CTA from "./components/CTA/CTA.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import WhatsappButton from "./components/WhatsappButton/WhatsappButton.jsx";
 
 export default function App() {
   useScrollReveal();
@@ -29,6 +30,7 @@ export default function App() {
         <CTA />
       </main>
       <Footer />
+      <WhatsappButton />
     </>
   );
 }

@@ -1,13 +1,8 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { CircleCheck } from 'lucide-react'
 import styles from './About.module.scss'
-
-const qualities = [
-  { title: 'Responsabilidad', desc: 'Atención cuidadosa desde la revisión inicial hasta la entrega del trabajo.' },
-  { title: 'Puntualidad', desc: 'Organización del tiempo y comunicación clara para coordinar cada visita.' },
-  { title: 'Trabajo versátil', desc: 'Capacidad para apoyar en diferentes áreas de reparación, mantenimiento y mejora del hogar.' },
-]
 
 const imgOne =
   'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=640&q=80'
@@ -15,7 +10,9 @@ const imgTwo =
   'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&w=640&q=80'
 
 export default function About() {
+  const { t } = useTranslation()
   const reduce = useReducedMotion()
+  const qualities = t('about.qualities', { returnObjects: true })
 
   // Gentle differential parallax: as the section passes, the two photos drift by
   // slightly different amounts to add depth. Off under reduced motion.
@@ -31,23 +28,17 @@ export default function About() {
     <section className={styles.about} id="about">
       <div className={styles.inner} data-reveal>
         <div className={styles.media} ref={mediaRef}>
-          <motion.img style={{ y: yOne }} className={styles.imgOne} src={imgOne} alt="Herramientas preparadas para servicios del hogar" loading="lazy" />
-          <motion.img style={{ y: yTwo }} className={styles.imgTwo} src={imgTwo} alt="Materiales y herramientas para reparaciones y mejoras" loading="lazy" />
+          <motion.img style={{ y: yOne }} className={styles.imgOne} src={imgOne} alt={t('about.imgOneAlt')} loading="lazy" />
+          <motion.img style={{ y: yTwo }} className={styles.imgTwo} src={imgTwo} alt={t('about.imgTwoAlt')} loading="lazy" />
         </div>
 
         <div className={styles.copy}>
-          <span className={styles.kicker}>Cómo trabajamos</span>
-          <h2>Listos para las reparaciones y mejoras de tu hogar</h2>
-          <p>
-            Reparación, mantenimiento e instalación para el hogar, con atención
-            directa y compromiso en cada trabajo, grande o pequeño.
-          </p>
-          <p>
-            Aquí puedes ver las áreas en las que trabajamos, revisar fotos y
-            videos de trabajos reales y pedir tu presupuesto en pocos pasos.
-          </p>
+          <span className={styles.kicker}>{t('about.kicker')}</span>
+          <h2>{t('about.title')}</h2>
+          <p>{t('about.p1')}</p>
+          <p>{t('about.p2')}</p>
 
-          <h3 className={styles.foundationTitle}>Forma de trabajo</h3>
+          <h3 className={styles.foundationTitle}>{t('about.foundationTitle')}</h3>
           <ul className={styles.foundation}>
             {qualities.map((quality) => (
               <li key={quality.title}>

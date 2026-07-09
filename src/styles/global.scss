@@ -11,6 +11,15 @@ html {
   scroll-padding-top: 96px; // keep anchored sections clear of the sticky navbar
 }
 
+// Safety net against horizontal scroll on mobile: a single overflowing element
+// (a wide word, an off-canvas panel mid-animation) should never let the whole
+// page pan sideways.
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 // Visible keyboard focus on every interactive element.
 // Dual-tone ring: a deep-blue outline carries contrast on light surfaces,
 // while the white halo carries it on the dark hero — so the indicator clears

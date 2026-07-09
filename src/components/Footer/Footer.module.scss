@@ -58,10 +58,13 @@
   ul {
     display: flex;
     flex-direction: column;
-    gap: $space-3;
+    gap: $space-1;
   }
 
   a {
+    display: inline-block;
+    padding-block: 6px; // lift the tap area clear of the 24px WCAG AA floor
+                        // without bloating the compact footer rhythm
     color: rgba(255, 255, 255, 0.65);
     font-size: 0.95rem;
     transition: color 0.2s $ease-out;

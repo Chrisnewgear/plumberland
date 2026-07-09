@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "brand": "Servicios del Hogar",
+    "principal": "Principal",
+    "links": {
+      "home": "Inicio",
+      "about": "Cómo trabajamos",
+      "services": "Servicios",
+      "projects": "Trabajos",
+      "areas": "Áreas",
+      "contact": "Contacto"
+    },
+    "cta": "Pide tu presupuesto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Idioma",
+    "switchToEnglish": "Cambiar a inglés",
+    "switchToSpanish": "Cambiar a español"
+  },
+  "hero": {
+    "badge": "Atención directa para tu hogar",
+    "title": "Listos para reparar, mantener y mejorar tu hogar",
+    "description": "Carpintería, fontanería, pintura, electricidad y mucho más. Nos encargamos de la reparación, el mantenimiento y la instalación, de principio a fin.",
+    "ctaQuote": "Pide tu presupuesto",
+    "ctaServices": "Ver servicios",
+    "ctaProjects": "Ver trabajos",
+    "searchLabel": "Listos para todos estos oficios",
+    "areasLabel": "Oficios que cubrimos",
+    "serviceAreas": ["carpintería", "fontanería", "pintura", "electricidad", "albañilería"],
+    "proofLabel": "Lo que ofrecemos",
+    "proofTitle": "Listos para todo tu hogar",
+    "proofSubtitle": "Atención directa en cada servicio",
+    "commitments": [
+      { "title": "Listos para el trabajo que necesites", "note": "Desde un arreglo pequeño hasta una mejora completa" },
+      { "title": "Todos los servicios en un solo lugar", "note": "Reparación, mantenimiento e instalación" },
+      { "title": "Ves el trabajo antes de decidir", "note": "Fotos y videos reales por cada área" }
+    ]
+  },
+  "about": {
+    "kicker": "Cómo trabajamos",
+    "title": "Listos para las reparaciones y mejoras de tu hogar",
+    "p1": "Reparación, mantenimiento e instalación para el hogar, con atención directa y compromiso en cada trabajo, grande o pequeño.",
+    "p2": "Aquí puedes ver las áreas en las que trabajamos, revisar fotos y videos de trabajos reales y pedir tu presupuesto en pocos pasos.",
+    "foundationTitle": "Forma de trabajo",
+    "imgOneAlt": "Herramientas preparadas para servicios del hogar",
+    "imgTwoAlt": "Materiales y herramientas para reparaciones y mejoras",
+    "qualities": [
+      { "title": "Responsabilidad", "desc": "Atención cuidadosa desde la revisión inicial hasta la entrega del trabajo." },
+      { "title": "Puntualidad", "desc": "Organización del tiempo y comunicación clara para coordinar cada visita." },
+      { "title": "Trabajo versátil", "desc": "Capacidad para apoyar en diferentes áreas de reparación, mantenimiento y mejora del hogar." }
+    ]
+  },
+  "stats": {
+    "label": "Lo que puedes esperar",
+    "items": [
+      { "value": "Directo", "label": "comunicación cercana y directa contigo" },
+      { "value": "Claro", "label": "conoces el alcance antes de empezar" },
+      { "value": "Ordenado", "label": "ves fotos y videos reales por área" },
+      { "value": "Responsable", "label": "cuida tu espacio y te da seguimiento" }
+    ]
+  },
+  "services": {
+    "kicker": "Servicios",
+    "title": "Todo lo que tu hogar necesita, en un mismo lugar",
+    "description": "Carpintería, fontanería, pintura, electricidad y mucho más. Nos ocupamos de cada trabajo para que no tengas que buscar en varios lados.",
+    "singleStrong": "Estamos listos para el trabajo que necesites.",
+    "singleRest": "Desde un arreglo pequeño hasta una mejora completa, nos encargamos de que quede bien hecho.",
+    "more": "Ver trabajos del área",
+    "items": [
+      { "title": "Carpintería", "desc": "Muebles, puertas, repisas, ajustes y trabajos generales en madera." },
+      { "title": "Fontanería", "desc": "Reparaciones, instalaciones, fugas, griferías y mantenimiento de tuberías." },
+      { "title": "Pintura", "desc": "Pintura interior, exterior, retoques, preparación de superficies y acabados." },
+      { "title": "Electricidad", "desc": "Instalaciones, revisiones, luminarias, tomacorrientes y reparaciones básicas." },
+      { "title": "Albañilería", "desc": "Paredes, pisos, enlucidos, reparaciones, cerámica y obra menor." }
+    ]
+  },
+  "guarantee": {
+    "badge": "Cómo funciona",
+    "title": "Pedir ayuda para tu hogar es así de simple",
+    "description": "Sin registros ni complicaciones. Conoce cómo trabajamos, revisa el trabajo realizado y, cuando lo tengas claro, envía tu solicitud.",
+    "stepCounter": "Paso {{current}} de {{total}}",
+    "stepLabel": "Paso {{number}}",
+    "viewStep": "Ver el paso {{number}}: {{title}}",
+    "steps": [
+      { "title": "Mira cómo trabajamos", "desc": "Conoce la forma de trabajo y qué puedes esperar, antes de tomar cualquier decisión." },
+      { "title": "Mira lo que puede hacer", "desc": "Desde carpintería hasta electricidad, revisa todos los servicios para tu hogar." },
+      { "title": "Comprueba su trabajo", "desc": "Entra a cada área y mira el resultado con fotos y videos de trabajos reales." },
+      { "title": "Cuéntale qué necesitas", "desc": "Describe el problema o la mejora que buscas y deja tus datos de contacto." },
+      { "title": "Pide tu presupuesto", "desc": "Envía tu solicitud y coordinamos juntos la visita para empezar el trabajo." }
+    ]
+  },
+  "gallery": {
+    "kicker": "Trabajos realizados",
+    "title": "Galería de trabajos terminados",
+    "description": "Fotos y videos reales de trabajos ya realizados. Míralos de cerca antes de contactarnos y hazte una idea del acabado que puedes esperar.",
+    "filterLabel": "Filtrar galería",
+    "filters": { "all": "Todos", "photo": "Fotos", "video": "Videos" },
+    "contactLink": "¿Buscas algo parecido? Escríbenos",
+    "empty": "Muy pronto subiremos material de esta categoría.",
+    "photoLabel": "Trabajo terminado {{number}}",
+    "videoLabel": "Video de trabajo {{number}}",
+    "badgePhoto": "Foto",
+    "badgeVideo": "Video",
+    "open": "Abrir {{label}}",
+    "close": "Cerrar",
+    "prev": "Anterior",
+    "next": "Siguiente"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "description": "Las dudas más comunes antes de pedir tu presupuesto.",
+    "items": [
+      { "q": "¿Qué tipo de trabajos hacen?", "a": "Reparaciones, mantenimiento, instalaciones y mejoras en distintas áreas del hogar: carpintería, fontanería, pintura, electricidad, albañilería y más." },
+      { "q": "¿Atienden arreglos pequeños o solo proyectos grandes?", "a": "Los dos. Estamos listos tanto para un arreglo puntual como para una mejora completa de tu hogar." },
+      { "q": "¿Las fotos y los videos son trabajos reales?", "a": "Sí. Algunos espacios todavía están reservados para el material; a medida que se publican, verás fotos y videos reales de trabajos terminados por cada área." },
+      { "q": "¿Qué datos necesito para pedir presupuesto?", "a": "Tu nombre, teléfono, correo, el servicio que necesitas y una breve descripción del problema o la mejora que buscas. Con eso basta para empezar." },
+      { "q": "¿Por qué no veo precios en la página?", "a": "Porque cada trabajo es distinto. El precio se acuerda contigo según lo que necesites, y consultar no cuesta nada ni te compromete." }
+    ]
+  },
+  "cta": {
+    "title": "Pide tu presupuesto, sin compromiso",
+    "description": "Dinos qué servicio necesitas y describe el problema o la mejora. Te respondemos para coordinar la visita por WhatsApp, llamada o correo.",
+    "successTitle": "¡Mensaje enviado!",
+    "successText": "Gracias por contactarnos. Te responderemos lo antes posible para coordinar la visita.",
+    "sendAnother": "Enviar otra solicitud",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "phone": "Teléfono",
+    "phonePlaceholder": "Tu teléfono",
+    "email": "Correo",
+    "emailPlaceholder": "Tu correo",
+    "serviceLabel": "¿Qué servicio necesitas?",
+    "servicePlaceholder": "Selecciona un servicio",
+    "services": ["Carpintería", "Fontanería", "Pintura", "Electricidad", "Albañilería"],
+    "descriptionLabel": "Cuéntale el problema o la mejora",
+    "descriptionPlaceholder": "Describe brevemente lo que necesitas",
+    "submit": "Pedir presupuesto",
+    "submitting": "Enviando…",
+    "error": "No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.",
+    "channelsLabel": "Canales de contacto",
+    "whatsapp": "WhatsApp",
+    "call": "Llamada",
+    "mail": "Correo",
+    "note": "Consultar no cuesta nada ni te compromete a nada."
+  },
+  "whatsappFab": {
+    "aria": "Escríbenos por WhatsApp",
+    "label": "Escríbenos"
+  },
+  "projects": {
+    "kicker": "Trabajos realizados",
+    "title": "Mira trabajos reales antes de decidir",
+    "description": "Antes de contactar, revisa fotos y videos de trabajos terminados, separados por carpintería, fontanería, pintura, electricidad y cada servicio del hogar.",
+    "gallery": "Ver áreas de trabajo",
+    "groups": [
+      { "title": "Ordenado por servicio", "desc": "Encuentra rápido el tipo de trabajo que necesitas, sin revolver entre todo." },
+      { "title": "Videos de cada área", "desc": "Mira el proceso y el resultado real, no solo una foto de catálogo." },
+      { "title": "Fotos de trabajos terminados", "desc": "Comprueba el acabado con ejemplos reales antes de contactar." }
+    ]
+  },
+  "footer": {
+    "brand": "Servicios del Hogar",
+    "tagline": "Servicios de confianza para las reparaciones, el mantenimiento y las mejoras de tu hogar.",
+    "backToTop": "Volver al inicio",
+    "copyright": "© {{year}} Servicios del Hogar. Reparaciones y mejoras del hogar.",
+    "columns": {
+      "page": {
+        "title": "Página",
+        "links": { "home": "Inicio", "about": "Cómo trabajamos", "services": "Servicios", "contact": "Contacto" }
+      },
+      "services": {
+        "title": "Servicios",
+        "links": { "carpentry": "Carpintería", "plumbing": "Fontanería", "painting": "Pintura", "electricity": "Electricidad" }
+      },
+      "portfolio": {
+        "title": "Portafolio",
+        "links": { "done": "Trabajos realizados", "areas": "Áreas de trabajo", "videos": "Videos por área", "photos": "Fotos por área" }
+      }
+    }
+  }
+}

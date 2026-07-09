@@ -1,39 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ClipboardList, Eye, MailCheck, SearchCheck, UserRound } from 'lucide-react'
 import styles from './Guarantee.module.scss'
 
-const steps = [
-  {
-    icon: UserRound,
-    title: 'Mira cómo trabajamos',
-    desc: 'Conoce la forma de trabajo y qué puedes esperar, antes de tomar cualquier decisión.',
-  },
-  {
-    icon: SearchCheck,
-    title: 'Mira lo que puede hacer',
-    desc: 'Desde carpintería hasta electricidad, revisa todos los servicios para tu hogar.',
-  },
-  {
-    icon: Eye,
-    title: 'Comprueba su trabajo',
-    desc: 'Entra a cada área y mira el resultado con fotos y videos de trabajos reales.',
-  },
-  {
-    icon: ClipboardList,
-    title: 'Cuéntale qué necesitas',
-    desc: 'Describe el problema o la mejora que buscas y deja tus datos de contacto.',
-  },
-  {
-    icon: MailCheck,
-    title: 'Pide tu presupuesto',
-    desc: 'Envía tu solicitud y coordinamos juntos la visita para empezar el trabajo.',
-  },
-]
+const icons = [UserRound, SearchCheck, Eye, ClipboardList, MailCheck]
 
 const STEP_MS = 2400
 
 export default function Guarantee() {
+  const { t } = useTranslation()
+  const steps = t('guarantee.steps', { returnObjects: true })
   const reduceMotion = useReducedMotion()
   const listRef = useRef(null)
   const inView = useInView(listRef, { amount: 0.35 })
@@ -63,18 +40,15 @@ export default function Guarantee() {
         <div className={styles.copy}>
           <span className={styles.badge}>
             <SearchCheck size={16} />
-            Cómo funciona
+            {t('guarantee.badge')}
           </span>
-          <h2>Pedir ayuda para tu hogar es así de simple</h2>
-          <p>
-            Sin registros ni complicaciones. Conoce cómo trabajamos, revisa el
-            trabajo realizado y, cuando lo tengas claro, envía tu solicitud.
-          </p>
+          <h2>{t('guarantee.title')}</h2>
+          <p>{t('guarantee.description')}</p>
 
           <div className={styles.progress} aria-hidden="true">
             <div className={styles.progressHead}>
               <span>
-                Paso {active + 1} de {steps.length}
+                {t('guarantee.stepCounter', { current: active + 1, total: steps.length })}
               </span>
               <strong>{steps[active].title}</strong>
             </div>
@@ -96,7 +70,8 @@ export default function Guarantee() {
           onFocusCapture={() => setPaused(true)}
           onBlurCapture={() => setPaused(false)}
         >
-          {steps.map(({ icon: Icon, title, desc }, i) => {
+          {steps.map(({ title, desc }, i) => {
+            const Icon = icons[i]
             const state = i === active ? 'active' : i < active ? 'done' : 'todo'
             return (
               <motion.li
@@ -113,7 +88,7 @@ export default function Guarantee() {
                     type="button"
                     className={styles.node}
                     onClick={() => setActive(i)}
-                    aria-label={`Ver el paso ${i + 1}: ${title}`}
+                    aria-label={t('guarantee.viewStep', { number: i + 1, title })}
                     aria-current={state === 'active' ? 'step' : undefined}
                     animate={reduceMotion ? undefined : { scale: state === 'active' ? 1.1 : 1 }}
                     transition={{ type: 'spring', stiffness: 320, damping: 20 }}
@@ -128,7 +103,7 @@ export default function Guarantee() {
                 </div>
 
                 <div className={styles.body}>
-                  <small>Paso {i + 1}</small>
+                  <small>{t('guarantee.stepLabel', { number: i + 1 })}</small>
                   <h3>{title}</h3>
                   <p>{desc}</p>
                 </div>

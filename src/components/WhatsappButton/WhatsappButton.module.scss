@@ -1,0 +1,155 @@
+// WhatsApp brand green (official). Kept local — it's a third-party brand colour,
+// not part of the site's own palette.
+$wa-green: #25d366;
+$wa-green-dark: #1da851;
+
+.fab {
+  position: fixed;
+  // Respect iOS safe-area insets so the button clears the home indicator.
+  right: calc(#{$space-5} + env(safe-area-inset-right, 0px));
+  bottom: calc(#{$space-5} + env(safe-area-inset-bottom, 0px));
+  // Above the sticky navbar (50), below the gallery lightbox (1000).
+  z-index: 90;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: $radius-pill;
+  background: $wa-green;
+  color: #fff;
+  box-shadow:
+    0 8px 24px rgba(37, 211, 102, 0.42),
+    0 2px 6px rgba(11, 31, 54, 0.2);
+
+  transition:
+    transform 0.24s $ease-out,
+    box-shadow 0.24s $ease,
+    background 0.2s $ease;
+
+  // Gentle entrance so it doesn't just pop in on load.
+  @media (prefers-reduced-motion: no-preference) {
+    animation: fab-in 0.5s $ease-out 0.4s both;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-3px);
+      background: $wa-green-dark;
+      box-shadow:
+        0 14px 32px rgba(37, 211, 102, 0.5),
+        0 3px 8px rgba(11, 31, 54, 0.24);
+    }
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $wa-green-dark;
+    outline-offset: 3px;
+  }
+
+  @include respond-below($bp-sm) {
+    width: 56px;
+    height: 56px;
+    right: calc(#{$space-4} + env(safe-area-inset-right, 0px));
+    bottom: calc(#{$space-4} + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+// Expanding attention ring. Purely decorative, so it's motion-gated.
+.pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: $radius-pill;
+  background: $wa-green;
+  z-index: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: fab-pulse 2.6s $ease-out 1.4s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}
+
+// Desktop tooltip pill that slides out on hover. Hidden on touch, where a FAB
+// reads as a WhatsApp button on its own.
+.label {
+  position: absolute;
+  right: calc(100% + #{$space-3});
+  white-space: nowrap;
+  padding: $space-2 $space-4;
+  border-radius: $radius-pill;
+  background: $color-ink;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: $shadow-md;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s $ease,
+    transform 0.2s $ease-out;
+
+  // Small caret pointing at the button.
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: $color-ink;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .fab:hover &,
+    .fab:focus-visible & {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @include respond-below($bp-md) {
+    display: none;
+  }
+}
+
+@keyframes fab-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fab-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}

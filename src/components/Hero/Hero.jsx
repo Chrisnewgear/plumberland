@@ -1,17 +1,16 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ArrowRight, CheckCircle2, Images, Mail, ShieldCheck, Wrench } from 'lucide-react'
 import styles from './Hero.module.scss'
 
-const serviceAreas = ['carpintería', 'fontanería', 'pintura', 'electricidad', 'albañilería']
-const commitments = [
-  { title: 'Listos para el trabajo que necesites', note: 'Desde un arreglo pequeño hasta una mejora completa' },
-  { title: 'Todos los servicios en un solo lugar', note: 'Reparación, mantenimiento e instalación' },
-  { title: 'Ves el trabajo antes de decidir', note: 'Fotos y videos reales por cada área' },
-]
 const EASE = [0.22, 1, 0.36, 1]
 
 export default function Hero() {
+  const { t } = useTranslation()
   const reduce = useReducedMotion()
+
+  const serviceAreas = t('hero.serviceAreas', { returnObjects: true })
+  const commitments = t('hero.commitments', { returnObjects: true })
 
   // Parallax: the hero photo drifts down a fraction of the scroll distance so it
   // lags behind the page, creating depth. Disabled under reduced motion.
@@ -45,37 +44,31 @@ export default function Hero() {
         >
           <motion.span className={styles.badge} variants={item}>
             <ShieldCheck size={16} />
-            Atención directa para tu hogar
+            {t('hero.badge')}
           </motion.span>
 
-          <motion.h1 variants={item}>
-            Listos para reparar, mantener y mejorar tu hogar
-          </motion.h1>
+          <motion.h1 variants={item}>{t('hero.title')}</motion.h1>
 
-          <motion.p variants={item}>
-            Carpintería, fontanería, pintura, electricidad y mucho más. Nos
-            encargamos de la reparación, el mantenimiento y la instalación, de
-            principio a fin.
-          </motion.p>
+          <motion.p variants={item}>{t('hero.description')}</motion.p>
 
           <motion.div className={styles.ctas} variants={item}>
             <a className={styles.primary} href="#contact">
               <Mail size={18} />
-              Pide tu presupuesto
+              {t('hero.ctaQuote')}
             </a>
             <a className={styles.secondary} href="#services">
-              Ver servicios
+              {t('hero.ctaServices')}
               <ArrowRight size={18} />
             </a>
             <a className={styles.secondary} href="#work-areas">
               <Images size={18} />
-              Ver trabajos
+              {t('hero.ctaProjects')}
             </a>
           </motion.div>
 
           <motion.div className={styles.searchBox} variants={item}>
-            <label>Listos para todos estos oficios</label>
-            <div className={styles.examples} aria-label="Oficios que cubrimos">
+            <label>{t('hero.searchLabel')}</label>
+            <div className={styles.examples} aria-label={t('hero.areasLabel')}>
               {serviceAreas.map((area) => (
                 <a key={area} href="#services">{area}</a>
               ))}
@@ -85,7 +78,7 @@ export default function Hero() {
 
         <motion.aside
           className={styles.proofPanel}
-          aria-label="Lo que ofrecemos"
+          aria-label={t('hero.proofLabel')}
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE, delay: 0.25 }}
@@ -95,8 +88,8 @@ export default function Hero() {
               <Wrench size={24} />
             </span>
             <div>
-              <strong>Listos para todo tu hogar</strong>
-              <span>Atención directa en cada servicio</span>
+              <strong>{t('hero.proofTitle')}</strong>
+              <span>{t('hero.proofSubtitle')}</span>
             </div>
           </div>
 
