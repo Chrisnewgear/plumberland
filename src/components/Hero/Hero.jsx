@@ -67,7 +67,7 @@ export default function Hero() {
               Ver servicios
               <ArrowRight size={18} />
             </a>
-            <a className={styles.secondary} href="#projects">
+            <a className={styles.secondary} href="#work-areas">
               <Images size={18} />
               Ver trabajos
             </a>
